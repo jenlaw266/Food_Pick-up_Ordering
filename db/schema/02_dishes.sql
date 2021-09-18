@@ -1,0 +1,8 @@
+DROP TABLE IF EXISTS dishes CASCADE;
+CREATE TABLE dishes (
+  id SERIAL PRIMARY KEY NOT NULL,
+  item VARCHAR(255) NOT NULL,
+  description TEXT,
+  price DECIMAL(8,2) NOT NULL,
+  estimated_time INTEGER NOT NULL
+);
