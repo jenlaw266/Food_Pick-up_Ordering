@@ -36,5 +36,5 @@ app.post("/admin", (req, res) => {
     })
     .then((message) => console.log(message.status));
 
-  //also update site to display estimated time
+  //also update site to display estimated time - pop up windows
 });
