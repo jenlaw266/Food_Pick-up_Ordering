@@ -1,4 +1,40 @@
-$(document).ready(function () {
+$(() => {
+  const $left = $(".fas.fa-caret-left");
+  const $right = $(".fas.fa-caret-right");
+
+  let currentImg = 1;
+  const picWidth = 640;
+  const menuLength = picWidth * $(".item").length;
+
+  $right.on("click", () => {
+    console.log("current img", currentImg);
+    if (currentImg === 4) {
+      $(".main-carousel").animate({
+        left: `+=${menuLength}`,
+      });
+      currentImg = 0;
+    }
+    $(".main-carousel").animate({
+      left: `-=${picWidth}`,
+    });
+    currentImg++;
+  });
+
+  $left.on("click", () => {
+    console.log("left click");
+    console.log("current img", currentImg);
+    if (currentImg === 1) {
+      $(".main-carousel").animate({
+        left: `-=${menuLength}`,
+      });
+      currentImg = $(".item").length + 1;
+    }
+    $(".main-carousel").animate({
+      left: `+=${picWidth}`,
+    });
+    currentImg--;
+  });
+
   //turn image to active when mouseenter
   $(".item").each(function () {
     $(this).on("mouseenter", turnActive);
@@ -12,7 +48,7 @@ const turnActive = function () {
     $(".qty").text(0);
     console.log("remove");
   }
-  console.log("enter", this.src);
+  console.log("enter", this.id);
   $(this).addClass("active");
   $("p").addClass("active"); //show description
 };
@@ -32,23 +68,3 @@ const turnActive = function () {
 
 
  */
-/* const $left = $(".fas.fa-caret-left");
-  const $right = $(".fas.fa-caret-right");
-
-  let counter = 1;
-  const picWidth = 640;
-
-  $right.click(() => {
-    $(".item").animate({
-      left: picWidth, //*counter
-    });
-    counter++;
-  });
-
-  $left.click(() => {
-    $(".item").animate({
-      right: picWidth,
-    });
-    counter--;
-  });
-*/
