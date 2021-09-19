@@ -12,12 +12,18 @@ const customersRouter = (db) => {
 
   // GET Home
   router.get('/', (req, res) => {
-    res.send("Menu items with desc and price")
+    db.query('select * from dishes')
+    .then((response)=>{
+      console.log("DISHES:", response.rows);
+      res.render("customer");
+    })
+    .catch((err)=> console.log(err));
   });
 
   //POST add dish operation
   router.post('/', (req, res) => {
     res.send("Add item on shopping cart")
+    //
   });
 
   //POST edit qty operation

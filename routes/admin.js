@@ -7,19 +7,29 @@
 
 const express = require('express');
 const router  = express.Router();
+const {smsToOwner, smsToCustomer} = require("../lib/twilio")
+
+const addMinutes = function (dt, minutes) {
+  const dateTime = new Date();
+  return new Date(dt.getTime() + Number(minutes) * 60000);
+}
+
 
 
 const adminRouter = (db) => {
 
   // GET admin dashboard
   router.get('/', (req, res) => {
-  //   db.query('select orders.id, orders.name, orders.phone, sum(line_items.subtotal) as subTotal from orders join line_items on line_items.order_id = orders.id group by orders.id;')
-  //  .then((response)=>{
-  //    console.log(response.rows);
-  //  })
-  //  .catch((err)=> console.log(err));
-  res.render('admin_dashboard');
- });
+     db.query('select orders.id, orders.name, orders.phone, sum(line_items.subtotal) as subTotal from orders join line_items on line_items.order_id = orders.id group by orders.id;')
+    .then((response)=>{
+      console.log(response.rows)
+      const extraTime = req.body.extraTime;
+      const templateVars = { extraTimeMins: extraTime };
+      res.render("admin", templateVars);
+
+    })
+    .catch((err)=> console.log(err));
+  });
 
   // GET operation order details
   router.get('/:id', (req, res) => {
@@ -34,10 +44,14 @@ const adminRouter = (db) => {
 
   // POST Edit operation And send SMS
   router.post('/', (req, res) => {
-    //query the max time from line_items
-    //include the text input from
-    res.send("Admin Add ETA and implement TWILIO");
-    res.render("admin_order_details");
+    const extraTime = req.body.extraTime;
+    const templateVars = { extraTimeMins: extraTime };
+    res.render("admin", templateVars);
+    const eta = addMinutes(new Date(), extraTime);
+    const etaString = eta.toLocaleString();
+    console.log("FOOD ETA:", etaString);
+    // smsToCustomer(etaString); //
+    //need to put this new time on the database of orders under the column order_datetime
   });
 
   // return the router
