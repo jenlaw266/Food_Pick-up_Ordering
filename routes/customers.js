@@ -16,7 +16,7 @@ const customersRouter = (db) => {
   });
 
   //POST add dish operation
-  router.post('/:id', (req, res) => {
+  router.post('/', (req, res) => {
     res.send("Add item on shopping cart")
   });
 
