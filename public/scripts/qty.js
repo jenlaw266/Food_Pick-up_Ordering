@@ -1,13 +1,14 @@
 $(document).ready(function () {
-  $(".add").on("click", add);
-  $(".minus").on("click", minus);
+  let counter = $(".qty").val();
+  $(".plus").on("click", () => {
+    $(".qty").text(counter++);
+  });
+  $(".minus").on("click", () => {
+    if ($(".qty").text() > 0) {
+      $(".qty").text(counter--);
+    } else {
+      $(".qty").text(0);
+      counter = 0;
+    }
+  });
 });
-
-const add = function () {
-  let counter = 0;
-  let numOfItems = counter++;
-
-  $("qty").text(numOfItems);
-};
-
-const minus = function () {};

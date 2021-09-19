@@ -8,22 +8,19 @@ body {
   }
 }
 
-.item {
-  opacity: 1;
+.main-carousel {
+  display: flex;
 }
 
-.item:hover {
+.item {
   opacity: 0.5;
 }
 
 .active {
-  opacity: 0.5;
+  opacity: 1;
+  visibility: visible;
 }
 
 p {
-  display: none;
-}
-
-p .active {
-  display: block;
+  visibility: hidden;
 }

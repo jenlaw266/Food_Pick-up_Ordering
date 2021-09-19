@@ -1,28 +1,38 @@
 $(document).ready(function () {
-  $(".main-carousel").flickity({
-    imagesLoaded: true,
-    cellAlign: "left",
-    contain: true,
+  //turn image to active when mouseenter
+  $(".item").each(function () {
+    $(this).on("mouseenter", turnActive);
+  });
+});
+
+const turnActive = function () {
+  if ($(".active").length > 0) {
+    $(".active").removeClass("active");
+    $("p").removeClass("active");
+    $(".qty").text(0);
+    console.log("remove");
+  }
+  console.log("enter", this.src);
+  $(this).addClass("active");
+  $("p").addClass("active"); //show description
+};
+
+/*
+
+  const desc = getDish(this.id);
+  $("p").append(desc);
+  $("p").addClass("active");
+  $(".qty").addClass("active");
+
+  $('.main-carousel').flickity({
+  imagesLoaded: true,
+  cellAlign: 'left',
+  contain: true
   });
 
-  for (let i = 0; i < $(".item").length; i++) {
-    $(".item")[i].on("mouseenter", () => {
-      if ($(".active").length > 0) {
-        $(".active")[0].removeClass("active");
-        $("p").removeClass("active");
-      }
-      this.addClass("active");
 
-      // const desc = getMenuItem(i);
-
-      // $("p").append(desc);
-      $("p").addClass("active");
-
-      $(".qty").addClass("active");
-    });
-  }
-
-  /* const $left = $(".fas.fa-caret-left");
+ */
+/* const $left = $(".fas.fa-caret-left");
   const $right = $(".fas.fa-caret-right");
 
   let counter = 1;
@@ -42,4 +52,3 @@ $(document).ready(function () {
     counter--;
   });
 */
-});

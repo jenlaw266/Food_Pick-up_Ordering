@@ -4,19 +4,21 @@
 <head>
   <title>Home Page</title>
 
-  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
-  <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
+  <!-- <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css"> -->
+  <!--npm <link rel="stylesheet" href="/path/to/flickity.css" media="screen"> -->
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <script src="/path/to/flickity.pkgd.min.js"></script>
-  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+  <!-- <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> -->
+  <!--npm <script src="/path/to/flickity.pkgd.min.js"></script> -->
 
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/slider.js"></script>
+  <script type="text/javascript" src="/scripts/qty.js"></script>
+  <script type="text/javascript" src="/scripts/add-to-chart.js"></script>
 
 </head>
 
@@ -25,21 +27,25 @@
 
   <div class="menu">
     <h3>Menu</h3>
-    <div class="main-carousel" data-flickity='{ "wrapAround": true }'>
-      <div class="carousel-cell"><img src="images/1.jpeg" class="item"></div>
-      <div class="carousel-cell"><img src="images/2.jpeg" class="item"></div>
-      <div class="carousel-cell"><img src="images/3.jpeg" class="item"></div>
-      <div class="carousel-cell"><img src="images/4.jpeg" class="item"></div>
+    <div class="main-carousel">
+      <div class="carousel-cell"><img src="images/1.jpeg" class="item" id="1"></div>
+      <div class="carousel-cell"><img src="images/2.jpeg" class="item" id="2"></div>
+      <div class="carousel-cell"><img src="images/3.jpeg" class="item" id="3"></div>
+      <div class="carousel-cell"><img src="images/4.jpeg" class="item" id="4"></div>
     </div>
   </div>
   </div>
-  <p>description of food </p>
-  <br>
-  <button class="add">+</button>
+  <p>name of food</p>
+  <p>description of food</p>
+  <button class="plus">+</button>
   <label class="qty">0</label>
   <button class="minus">-</button>
   <br>
   <button class="add-to-cart"> add to cart</button>
+  <br>
+  <button class="order"> order here</button>
+  <br>
+  <ul class="chart"></ul>
 
 </body>
 
