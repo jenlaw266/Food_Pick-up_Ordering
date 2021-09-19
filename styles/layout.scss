@@ -1,9 +1,29 @@
 // See: https://sass-lang.com/
 
 body {
-  background-color: #EEE;
+  background-color: #eee;
 
   h1 {
     color: #244751;
   }
+}
+
+.item {
+  opacity: 1;
+}
+
+.item:hover {
+  opacity: 0.5;
+}
+
+.active {
+  opacity: 0.5;
+}
+
+p {
+  display: none;
+}
+
+p .active {
+  display: block;
 }

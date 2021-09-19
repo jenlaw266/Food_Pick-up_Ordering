@@ -1,17 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <title>Home Page</title>
 
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
-    <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
-    <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+<head>
+  <title>Home Page</title>
 
-    <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-    <script type="text/javascript" src="/scripts/app.js"></script>
-  </head>
+  <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+  <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
 
-  <body>
-    <h1>Hello World!</h1>
-  </body>
+  <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
+  <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
+  <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <script src="/path/to/flickity.pkgd.min.js"></script>
+  <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+  <script type="text/javascript" src="/scripts/app.js"></script>
+  <script type="text/javascript" src="/scripts/slider.js"></script>
+
+</head>
+
+<body>
+  <h2>Header</h2>
+
+  <div class="menu">
+    <h3>Menu</h3>
+    <div class="main-carousel" data-flickity='{ "wrapAround": true }'>
+      <div class="carousel-cell"><img src="images/1.jpeg" class="item"></div>
+      <div class="carousel-cell"><img src="images/2.jpeg" class="item"></div>
+      <div class="carousel-cell"><img src="images/3.jpeg" class="item"></div>
+      <div class="carousel-cell"><img src="images/4.jpeg" class="item"></div>
+    </div>
+  </div>
+  </div>
+  <p>description of food </p>
+  <br>
+  <button class="add">+</button>
+  <label class="qty">0</label>
+  <button class="minus">-</button>
+  <br>
+  <button class="add-to-cart"> add to cart</button>
+
+</body>
+
 </html>
