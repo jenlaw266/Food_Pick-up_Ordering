@@ -5,29 +5,28 @@
  * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
  */
 
-const express = require('express');
-const router  = express.Router();
+const express = require("express");
+const router = express.Router();
 
 const customersRouter = (db) => {
-
   // GET Home
-  router.get('/', (req, res) => {
-    res.send("Menu items with desc and price")
+  router.get("/", (req, res) => {
+    res.render("index.ejs");
   });
 
   //POST add dish operation
-  router.post('/', (req, res) => {
-    res.send("Add item on shopping cart")
+  router.post("/", (req, res) => {
+    res.send("Add item on shopping cart");
   });
 
   //POST edit qty operation
-  router.post('/:id/edit', (req, res) => {
-    res.send("Change qty on cart")
+  router.post("/:id/edit", (req, res) => {
+    res.send("Change qty on cart");
   });
 
   //POST delete dish operation
-  router.post('/:id/delete', (req, res) => {
-    res.send("Delete item on shopping cart")
+  router.post("/:id/delete", (req, res) => {
+    res.send("Delete item on shopping cart");
   });
 
   // GET /blogposts/:blogpost_id
@@ -43,4 +42,3 @@ const customersRouter = (db) => {
 };
 
 module.exports = customersRouter;
-

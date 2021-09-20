@@ -1,0 +1,46 @@
+<%- include('partials/_head') %>
+
+  <body>
+   <!-- Top nav bar (fixed) -->
+   <nav>
+    <span class="logo">LOGO</span>
+    <span class="nav_welcome">Welcome   Admin</span>
+  </nav>
+    <!-- New tweet post and tweets container-->
+    <main id="container">
+      <section id="new-tweet">
+
+        <table>
+          <thead>
+            <tr><th colspan="5" class="table_title">ORDERS</th></tr>
+          <tr>
+            <th>ID</th>
+            <th>Order Name</th>
+            <th>Phone Num</th>
+            <th>Total Amount</th>
+            <th>Order Status</th>
+          </tr>
+          </thead>
+          <tbody>
+            <% for(let order of ordersDb) { %>
+              <tr>
+                <td><a href="/admin/<%= order['id'] %>"><%= order["id"] %></a></td>
+                <td><%= order["name"] %></td>
+                <td><%= order["phone"] %></td>
+                <td><%= order["subtotal"] %></td>
+                <td><%= order["status"] %></td>
+              </tr>
+            <% } %>
+          </tbody>
+        </table>
+        <h4>Extra time:</h4>
+        <h5><%= extraTimeMins %></h5>
+      </section>
+
+    </main>
+    <footer>
+
+    </footer>
+
+    </body>
+</html>

@@ -1,9 +1,59 @@
 // See: https://sass-lang.com/
 
+* {
+  box-sizing: border-box;
+}
+
 body {
-  background-color: #EEE;
+  background-color: #eee;
 
   h1 {
     color: #244751;
   }
+}
+
+.container {
+  width: 90%;
+  margin: auto;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  position: relative;
+  width: 100%;
+}
+
+.item {
+  opacity: 0.5;
+}
+
+.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+p {
+  visibility: hidden;
+}
+
+.fas {
+  font-size: 5em;
+}
+
+.fas:hover {
+  color: turquoise;
+}
+
+.arrows {
+  display: flex;
+  justify-content: space-between;
+  // 551/2 = 275 - half the height of the menu div
+  position: relative;
+  top: -275px;
+}
+
+.bottom-page {
+  display: flex;
+  justify-content: space-around;
 }

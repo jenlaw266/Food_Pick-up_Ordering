@@ -17,10 +17,13 @@
     "dotenv": "^2.0.0",
     "ejs": "^2.6.2",
     "express": "^4.17.1",
+    "flickity": "^2.2.2",
+    "flickity-imagesloaded": "^2.0.0",
     "morgan": "^1.9.1",
     "node-sass-middleware": "^0.11.0",
     "pg": "^8.5.0",
-    "pg-native": "^3.0.0"
+    "pg-native": "^3.0.0",
+    "twilio": "^3.67.2"
   },
   "devDependencies": {
     "nodemon": "^1.19.1"
