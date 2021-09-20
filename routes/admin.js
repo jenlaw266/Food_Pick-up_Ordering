@@ -20,12 +20,16 @@ const adminRouter = (db) => {
 
   // GET admin dashboard
   router.get('/', (req, res) => {
-     db.query('select orders.id, orders.name, orders.phone, sum(line_items.subtotal) as subTotal from orders join line_items on line_items.order_id = orders.id group by orders.id;')
+     db.query('select orders.id, orders.name, orders.phone, sum(line_items.subtotal) as subTotal, orders.status from orders join line_items on line_items.order_id = orders.id group by orders.id;')
     .then((response)=>{
       console.log(response.rows)
+      const ordersDb = response.rows
       const extraTime = req.body.extraTime;
-      const templateVars = { extraTimeMins: extraTime };
-      res.render("admin", templateVars);
+      const templateVars = {
+        extraTimeMins: extraTime,
+        ordersDb
+      };
+      res.render("admin_dashboard", templateVars);
 
     })
     .catch((err)=> console.log(err));
@@ -33,11 +37,13 @@ const adminRouter = (db) => {
 
   // GET operation order details
   router.get('/:id', (req, res) => {
-    db.query(`SELECT line_items.id, dishes.item, line_items.qty, line_items.subtotal FROM orders JOIN line_items ON line_items.order_id = orders.id JOIN dishes ON dishes.id = line_items.dish_id where orders.id = $1;`,[req.params.id])
+    db.query(`SELECT line_items.id, dishes.item, dishes.price, line_items.qty, line_items.subtotal FROM orders JOIN line_items ON line_items.order_id = orders.id JOIN dishes ON dishes.id = line_items.dish_id where orders.id = $1;`,[req.params.id])
     .then((response)=>{
        //res.json(response.rows);
-      res.render("admin_order_details");
-      res.redirect("/admin");
+      const anOrder = response.rows;
+      const templateVars = { anOrder };
+      console.log("anORDER:",anOrder);
+      res.render("admin_order_details", templateVars);
     })
     .catch((err)=> console.log(err));
   });
@@ -46,7 +52,7 @@ const adminRouter = (db) => {
   router.post('/', (req, res) => {
     const extraTime = req.body.extraTime;
     const templateVars = { extraTimeMins: extraTime };
-    res.render("admin", templateVars);
+    res.render("admin_dashboard", templateVars);
     const eta = addMinutes(new Date(), extraTime);
     const etaString = eta.toLocaleString();
     console.log("FOOD ETA:", etaString);
