@@ -16,33 +16,21 @@
         <tr>
           <th>ID</th>
           <th>Dish name</th>
+          <th>Price</th>
           <th>Qty</th>
-          <th>ETA</th>
           <th>Sub Total</th>
         </tr>
         </thead>
         <tbody>
-        <tr>
-          <td><a href="/admin/1">1</a></td>
-          <td>Matman</td>
-          <td>Chief Sandwich Eater</td>
-          <td>15 min</td>
-          <td>$100</td>
-        </tr>
-        <tr>
-          <td><a href="/admin/1">1</a></td>
-          <td>Matman</td>
-          <td>Chief Sandwich Eater</td>
-          <td>15 min</td>
-          <td>$100</td>
-        </tr>
-        <tr>
-          <td><a href="/admin/1">1</a></td>
-          <td>Matman</td>
-          <td>Chief Sandwich Eater</td>
-          <td>15 min</td>
-          <td>$100</td>
-        </tr>
+          <% for(let item of anOrder) { %>
+            <tr>
+              <td><%= item["id"] %></td>
+              <td><%= item["item"] %></td>
+              <td>$<%= item["price"] %></td>
+              <td><%= item["qty"] %></td>
+              <td>$<%= item["subtotal"] %></td>
+            </tr>
+          <% } %>
         </tbody>
       </table>
     </section>
