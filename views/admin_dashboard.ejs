@@ -24,7 +24,6 @@
           </thead>
           <tbody>
             <% for(let order of ordersDb) { %>
-              <div><%= order %></div>
               <tr>
                 <td><a href="/admin/<%= order['id'] %>"><%= order["id"] %></a></td>
                 <td><%= order["name"] %></td>
@@ -36,9 +35,7 @@
             <% } %>
           </tbody>
         </table>
-        <h4>Extra time:</h4>
-        <h5><%= extraTimeMins %></h5>
-      </section>
+        </section>
 
     </main>
     <footer>

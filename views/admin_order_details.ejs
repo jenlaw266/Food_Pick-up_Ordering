@@ -36,8 +36,9 @@
     </section>
     <form class="form-inline" action="/admin/<%= orderId %>" method="POST">
       <div class="form-group mb-2">
-        <label for="extraTime">Add additional time:</label>
-        <input class="form-control" type="text" name="extraTime" placeholder="0" style="width: 300px; margin: 1em">
+        <label for="maxTime">Estimated Time (minutes):</label>
+
+        <input class="form-control" type="text" name="maxTime" value="<%=maxTime%>" placeholder="0" style="width: 300px; margin: 1em">
         <button type="submit" class="btn btn-primary">Submit</button>
       </div>
     </form>

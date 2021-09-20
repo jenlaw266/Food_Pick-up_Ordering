@@ -7,7 +7,11 @@
 
 const express = require('express');
 const router  = express.Router();
-const {smsToOwner, smsToCustomer} = require("../lib/twilio")
+const {smsToOwner, smsToCustomer} = require("../lib/twilio");
+
+
+let templateVars;
+
 
 const addMinutes = function (dt, minutes) {
   const dateTime = new Date();
@@ -25,9 +29,9 @@ const adminRouter = (db) => {
     .then((response)=>{
       console.log(response.rows)
       const ordersDb = response.rows
-      const extraTime = req.body.extraTime;
+      const totalTime = req.body.totalTime;
       const templateVars = {
-        extraTimeMins: extraTime,
+        totalTimeMins: totalTime,
         ordersDb
       };
       res.render("admin_dashboard", templateVars);
@@ -44,60 +48,60 @@ const adminRouter = (db) => {
        //res.json(response.rows);
       const orderId = req.params.id;
       const anOrder = response.rows;
-      const templateVars = {
+      templateVars = {
         anOrder,
         orderId
        };
-      console.log("anORDER:",anOrder);
+      //return db.query("select max(estimated_time) from dishes join line_items on line_items.dish_id = dishes.id where order_id = 1;")
+      //console.log("anORDER:",anOrder);
+      console.log("1 ", templateVars);
+      //res.render("admin_order_details", templateVars);
+    })
+    .then(() => {
+      return db.query("select max(estimated_time) from dishes join line_items on line_items.dish_id = dishes.id where order_id = $1;",[req.params.id])
+    })
+    .then((response)=>{
+      templateVars['maxTime'] = response.rows[0].max;
+      console.log("2 ", templateVars);
       res.render("admin_order_details", templateVars);
     })
     .catch((err)=> console.log(err));
   });
 
-  // POST Edit operation And send SMS
-  // router.post('/', (req, res) => {
-  //   const eta = addMinutes(new Date(), extraTime);
-  //   const etaString = eta.toLocaleString();
-  //   console.log("FOOD ETA:", etaString);
-  //   smsToCustomer(etaString); //
-    // //need to put this new time on the database of orders under the column order_datetime
+//  POST Edit operation And send SMS
+  router.post('/:id', (req, res) => {
 
 
-  //   const extraTime = Number(req.body.extraTime);
-  //   console.log("EXTRA TIME", extraTime);
-  //   console.log("res", res.body)
-  //   db.query(`UPDATE orders SET status = 'PROCESSED', order_datetime = CURRENT_TIMESTAMP WHERE id = $1;`,[req.params.id])
-  //     .then((response)=>{
-  //       console.log(response.rows)
-  //       const ordersDb = response.rows
-  //       const templateVars = {
-  //         extraTimeMins: extraTime,
-  //         ordersDb
-  //       };
-  //       res.render("admin_dashboard", templateVars);
-  //     })
-  //     .catch((err)=> console.log(err));
-  //   })
+    const totalTime = Number(req.body.maxTime);
+    console.log("EXTRA TIME", totalTime);
+    console.log("id", req.params.id);
+    db.query(`UPDATE orders SET status = 'PROCESSED', order_datetime = CURRENT_TIMESTAMP +  ($1 * interval '1 minute') WHERE id = $2;`,[totalTime,req.params.id])
+    .then(()=>{
 
-  //POST Edit operation And send SMS
-  router.post("/:id", (req, res) => {
-    console.log("<---------- POST INDIVIDUAL ORDER PAGE ----------->");
-    const orderId = req.params.orderId;
-    // const order_datetime = req.body.order_datetime;
-    // const extraTime = Number(req.body.extraTime)
-    console.log("ORDER ID", orderId);
-    db.query(`UPDATE orders SET status = 'PROCESSED', order_datetime = CURRENT_TIMESTAMP WHERE id = $1;`,[orderId])
-      .then((response) => {
-        console.log("RESPONSE.ROWS", response)
-        db.query(`SELECT * FROM orders`)
-        .then((response) => {
-        // const ordersDb = response.rows
-        console.log("SECOND RESPONSE", response)
-        res.redirect("/admin");
-        })
+      return db.query(`select orders.id, orders.name, orders.phone, sum(line_items.subtotal) as subTotal, orders.status, orders.order_datetime from orders join line_items on line_items.order_id = orders.id
+       WHERE orders.id=$1
+       group by orders.id;`,[req.params.id]);
+    })
+    .then((response) =>{
+      const ordersDb = response.rows;
+        smsToCustomer(ordersDb[0]["order_datetime"]);
+         console.log(response.rows)
+        console.log("datetime ", ordersDb[0]["order_datetime"]);
+    })
+    .then(()=>{
+      return db.query(`select orders.id, orders.name, orders.phone, sum(line_items.subtotal) as subTotal, orders.status, orders.order_datetime from orders join line_items on line_items.order_id = orders.id
+       group by orders.id;`);
+
+    })
+    .then((response)=>{
+        const ordersDb = response.rows;
+        const templateVars = {
+          ordersDb
+        };
+        res.render("admin_dashboard", templateVars);
       })
       .catch((err)=> console.log(err));
-  })
+    })
 
 
   // return the router
