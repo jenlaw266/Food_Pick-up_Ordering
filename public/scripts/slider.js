@@ -1,4 +1,4 @@
-$(() => {
+$(document).ready(function () {
   const $left = $(".fas.fa-caret-left");
   const $right = $(".fas.fa-caret-right");
 
@@ -40,22 +40,33 @@ $(() => {
     $(this).on("mouseenter", turnActive);
   });
 });
-
 const turnActive = function () {
   if ($(".active").length > 0) {
     $(".active").removeClass("active");
     $("p").removeClass("active");
   }
 
-  console.log("img id:", this.id);
   $(this).addClass("active");
-
   //display information about the current slide/dish
   $("p").addClass("active");
-  //need to import??
-  getDish(this.id).then((dish) => {
-    $(".food-name").append(dish.item);
-    $(".food-desc").append(dish.description);
-    $(".food-price").append(dish.price);
+
+  $.ajax({
+    url: `/product-info/${this.id}`,
+    method: "GET",
+    success: (dish) => {
+      appendInfo(dish);
+    },
+    error: (err) => {
+      console.log("error: ", err);
+    },
   });
+
+  const appendInfo = (dish) => {
+    $(".food-name").empty();
+    $(".food-desc").empty();
+    $(".food-price").empty();
+    $(".food-name").append(`<strong>${dish.item}</strong>`);
+    $(".food-desc").append(dish.description);
+    $(".food-price").append(`$${dish.price}`);
+  };
 };

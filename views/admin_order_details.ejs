@@ -1,34 +1,20 @@
 <%- include('partials/_head') %>
 
-<body>
- <!-- Top nav bar (fixed) -->
- <nav>
-  <span class="logo">LOGO</span>
-  <span class="nav_welcome">Welcome   Admin</span>
-</nav>
-  <!-- New tweet post and tweets container-->
-  <main id="container">
-    <section id="new-tweet">
+  <body>
+    <!-- Top nav bar (fixed) -->
+    <nav>
+      <span class="logo">LOGO</span>
+      <span class="nav_welcome">Welcome Admin</span>
+    </nav>
+    <!-- New tweet post and tweets container-->
+    <main id="container">
+      <section id="new-tweet">
 
-      <table>
-        <thead>
-          <tr><th colspan="5" class="table_title">ORDER DETAILS for <%= orderId %></th></tr>
-        <tr>
-          <th>ID</th>
-          <th>Dish name</th>
-          <th>Price</th>
-          <th>Qty</th>
-          <th>Sub Total</th>
-        </tr>
-        </thead>
-        <tbody>
-          <% for(let item of anOrder) { %>
+        <table>
+          <thead>
             <tr>
-              <td><%= item["id"] %></td>
-              <td><%= item["item"] %></td>
-              <td>$<%= item["price"] %></td>
-              <td><%= item["qty"] %></td>
-              <td>$<%= item["subtotal"] %></td>
+              <th colspan="5" class="table_title">ORDER DETAILS for <%= orderId %>
+              </th>
             </tr>
           <% } %>
         </tbody>
@@ -43,10 +29,11 @@
       </div>
     </form>
 
-  </main>
-  <footer>
+    </main>
+    <footer>
 
-  </footer>
+    </footer>
 
   </body>
-</html>
+
+  </html>

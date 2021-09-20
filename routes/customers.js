@@ -7,6 +7,7 @@
 
 const express = require("express");
 const router = express.Router();
+const customer = require("../db/customer_query");
 
 const customersRouter = (db) => {
   // GET Home
@@ -14,9 +15,18 @@ const customersRouter = (db) => {
     res.render("index.ejs");
   });
 
-  //POST add dish operation
-  router.post("/", (req, res) => {
-    res.send("Add item on shopping cart");
+  //GET food info
+  router.get("/product-info/:id", (req, res) => {
+    customer.getDish(req.params.id).then((result) => {
+      res.send(result);
+    });
+  });
+
+  //POST add order operation ????????
+  router.post("/order-info", (req, res) => {
+    customer.addOrder(req.body.name, req.body.phone).then((result) => {
+      res.send(result);
+    });
   });
 
   //POST edit qty operation

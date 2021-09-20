@@ -8,4 +8,6 @@ public/.DS_Store
 .env.example
 db/seeds
 db/schema
+public/.DS_Store
+.DS_Store
 package-lock.json
