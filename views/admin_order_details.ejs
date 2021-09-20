@@ -1,51 +1,62 @@
 <%- include('partials/_head') %>
 
-<body>
- <!-- Top nav bar (fixed) -->
- <nav>
-  <span class="logo">LOGO</span>
-  <span class="nav_welcome">Welcome   Admin</span>
-</nav>
-  <!-- New tweet post and tweets container-->
-  <main id="container">
-    <section id="new-tweet">
+  <body>
+    <!-- Top nav bar (fixed) -->
+    <nav>
+      <span class="logo">LOGO</span>
+      <span class="nav_welcome">Welcome Admin</span>
+    </nav>
+    <!-- New tweet post and tweets container-->
+    <main id="container">
+      <section id="new-tweet">
 
-      <table>
-        <thead>
-          <tr><th colspan="5" class="table_title">ORDER DETAILS</th></tr>
-        <tr>
-          <th>ID</th>
-          <th>Dish name</th>
-          <th>Price</th>
-          <th>Qty</th>
-          <th>Sub Total</th>
-        </tr>
-        </thead>
-        <tbody>
-          <% for(let item of anOrder) { %>
+        <table>
+          <thead>
             <tr>
-              <td><%= item["id"] %></td>
-              <td><%= item["item"] %></td>
-              <td>$<%= item["price"] %></td>
-              <td><%= item["qty"] %></td>
-              <td>$<%= item["subtotal"] %></td>
+              <th colspan="5" class="table_title">ORDER DETAILS</th>
             </tr>
-          <% } %>
-        </tbody>
-      </table>
-    </section>
-    <form class="form-inline" action="/admin" method="POST">
-      <div class="form-group mb-2">
-        <label for="extraTime">Add additional time:</label>
-        <input class="form-control" type="text" name="extraTime" placeholder="0" style="width: 300px; margin: 1em">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div>
-    </form>
+            <tr>
+              <th>ID</th>
+              <th>Dish name</th>
+              <th>Price</th>
+              <th>Qty</th>
+              <th>Sub Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let item of anOrder) { %>
+              <tr>
+                <td>
+                  <%= item["id"] %>
+                </td>
+                <td>
+                  <%= item["item"] %>
+                </td>
+                <td>$<%= item["price"] %>
+                </td>
+                <td>
+                  <%= item["qty"] %>
+                </td>
+                <td>$<%= item["subtotal"] %>
+                </td>
+              </tr>
+              <% } %>
+          </tbody>
+        </table>
+      </section>
+      <form class="form-inline" action="/admin" method="POST">
+        <div class="form-group mb-2">
+          <label for="extraTime">Add additional time:</label>
+          <input class="form-control" type="text" name="extraTime" placeholder="0" style="width: 300px; margin: 1em">
+          <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+      </form>
 
-  </main>
-  <footer>
+    </main>
+    <footer>
 
-  </footer>
+    </footer>
 
   </body>
-</html>
+
+  </html>

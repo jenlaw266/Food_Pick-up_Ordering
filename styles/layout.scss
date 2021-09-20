@@ -25,11 +25,11 @@ body {
 }
 
 .item {
-  opacity: 0.5;
+  opacity: 1;
 }
 
 .active {
-  opacity: 1;
+  opacity: 0.5;
   visibility: visible;
 }
 
@@ -56,4 +56,24 @@ p {
 .bottom-page {
   display: flex;
   justify-content: space-around;
+}
+
+.restaurant-info {
+  background-color: #89b755;
+  width: 640px;
+  height: 427px;
+  display: flex;
+  flex-direction: column;
+}
+
+.food-name {
+  width: 33%;
+}
+
+.food-desc {
+  width: 34%;
+}
+
+.food-price {
+  width: 33%;
 }

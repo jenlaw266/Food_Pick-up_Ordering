@@ -4,22 +4,20 @@
 <head>
   <title>Home Page</title>
 
-  <!-- <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css"> -->
-  <!--npm <link rel="stylesheet" href="/path/to/flickity.css" media="screen"> -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> -->
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-  <!-- <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script> -->
-  <!--npm <script src="/path/to/flickity.pkgd.min.js"></script> -->
 
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/slider.js"></script>
   <script type="text/javascript" src="/scripts/quantity.js"></script>
-  <!-- <script type="text/javascript" src="/scripts/add-to-chart.js"></script> -->
+  <script type="text/javascript" src="/scripts/modal.js"></script>
+  <script type="text/javascript" src="/scripts/add-order.js"></script>
 
 </head>
 
@@ -36,6 +34,12 @@
         <img src="images/2.jpeg" class="item" id="2">
         <img src="images/3.jpeg" class="item" id="3">
         <img src="images/4.jpeg" class="item" id="4">
+        <div class="restaurant-info">
+          <h3>Restaurant Information</h3>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo quis nihil architecto? Sed quasi vitae
+            deleniti? Saepe, quo dolorum maiores ullam itaque nobis similique odio beatae porro cupiditate mollitia
+            dolores.</p>
+        </div>
       </div>
     </div>
 
@@ -48,14 +52,14 @@
 
   <div class="bottom-page">
     <div class="description">
-      <p class="food-name"><strong>name of food</strong></p>
-      <p class="food-desc">description of food</p>
-      <p class="food-price">price of food</p>
+      <p class="food-name"></p>
+      <p class="food-desc"></p>
+      <p class="food-price"></p>
     </div>
 
     <div class="shopping-cart">
       <button class="plus">+</button>
-      <label class="qty">0</label>
+      <label class="qty">1</label>
       <button class="minus">-</button>
       <br>
       <button class="add-to-cart"> add to cart</button>
@@ -72,6 +76,14 @@
       <button class="order"> order here</button>
     </div>
   </div>
+
+  <div class="modal">
+    <div class="modal-background"></div>
+    <div class="modal-content has-background-white py-5 px-5">
+      <h3 class="title mb-6">Message here</h3>
+    </div>
+  </div>
+  <button id="owner-submit"> submit</button>
 </body>
 
 </html>
