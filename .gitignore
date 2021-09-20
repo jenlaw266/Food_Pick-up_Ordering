@@ -3,6 +3,9 @@ public/styles
 .env
 *.log
 *.sqlite3
+.DS_Store
+public/.DS_Store
 .env.example
 db/seeds
 db/schema
+package-lock.json
