@@ -12,7 +12,7 @@
 
       <table>
         <thead>
-          <tr><th colspan="5" class="table_title">ORDER DETAILS</th></tr>
+          <tr><th colspan="5" class="table_title">ORDER DETAILS for <%= orderId %></th></tr>
         <tr>
           <th>ID</th>
           <th>Dish name</th>
@@ -34,7 +34,7 @@
         </tbody>
       </table>
     </section>
-    <form class="form-inline" action="/admin" method="POST">
+    <form class="form-inline" action="/admin/<%= orderId %>" method="POST">
       <div class="form-group mb-2">
         <label for="extraTime">Add additional time:</label>
         <input class="form-control" type="text" name="extraTime" placeholder="0" style="width: 300px; margin: 1em">

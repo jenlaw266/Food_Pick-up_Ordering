@@ -9,20 +9,20 @@
 - twilio? (J)
 
 ## SUN
-- twilio?
+- twilio
 - discuss features
 - css
 - finish tasks from Saturday
 
 ## MON
-- css
-- functionalities/features
+- finish functionalities on customer/admin/order details
 
 ## TUES
+- css/html/beautify/refactorin
 - finish app with MVD features
 
 ## WED
-- add extra
+- add extra - dashboard
 
 ## THUR
 practice for demo
