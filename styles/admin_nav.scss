@@ -1,0 +1,22 @@
+/* Top navigation formatting */
+nav {
+  background-color: #ffa69e;
+  color: black;
+  height: 120px;
+  width: 100%;
+  display: flex;
+  position: sticky;
+  top: 0;
+}
+nav .logo {
+  font-size: 2.2em;
+  flex-grow: 1;
+  align-self: center;
+  margin-left: 50px;
+}
+nav .nav_welcome {
+  align-self: center;
+  font-size: 1.1em;
+  margin-right: 50px;
+}
+

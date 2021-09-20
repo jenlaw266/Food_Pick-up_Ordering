@@ -7,6 +7,14 @@
 
 const express = require('express');
 const router  = express.Router();
+const {smsToOwner, smsToCustomer} = require("../lib/twilio")
+
+const addMinutes = function (dt, minutes) {
+  const dateTime = new Date();
+  return new Date(dt.getTime() + Number(minutes) * 60000);
+}
+
+
 
 const adminRouter = (db) => {
 
@@ -14,7 +22,11 @@ const adminRouter = (db) => {
   router.get('/', (req, res) => {
      db.query('select orders.id, orders.name, orders.phone, sum(line_items.subtotal) as subTotal from orders join line_items on line_items.order_id = orders.id group by orders.id;')
     .then((response)=>{
-      res.json(response.rows);
+      console.log(response.rows)
+      const extraTime = req.body.extraTime;
+      const templateVars = { extraTimeMins: extraTime };
+      res.render("admin", templateVars);
+
     })
     .catch((err)=> console.log(err));
   });
@@ -23,7 +35,7 @@ const adminRouter = (db) => {
   router.get('/:id', (req, res) => {
     db.query(`SELECT line_items.id, dishes.item, line_items.qty, line_items.subtotal FROM orders JOIN line_items ON line_items.order_id = orders.id JOIN dishes ON dishes.id = line_items.dish_id where orders.id = $1;`,[req.params.id])
     .then((response)=>{
-      // res.json(response.rows);
+       //res.json(response.rows);
       res.render("admin_order_details");
       res.redirect("/admin");
     })
@@ -32,10 +44,14 @@ const adminRouter = (db) => {
 
   // POST Edit operation And send SMS
   router.post('/', (req, res) => {
-    //query the max time from line_items
-    //include the text input from
-    res.send("Admin Add ETA and implement TWILIO")
-    res.render("admin_order_details",)
+    const extraTime = req.body.extraTime;
+    const templateVars = { extraTimeMins: extraTime };
+    res.render("admin", templateVars);
+    const eta = addMinutes(new Date(), extraTime);
+    const etaString = eta.toLocaleString();
+    console.log("FOOD ETA:", etaString);
+    // smsToCustomer(etaString); //
+    //need to put this new time on the database of orders under the column order_datetime
   });
 
   // return the router

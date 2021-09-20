@@ -1,0 +1,36 @@
+#container {
+  width: 90%;
+  margin: 30px auto;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+/* Zebra striping */
+tr:nth-of-type(odd) {
+  background: #eee;
+}
+th {
+  background: #ffa69e;
+  color: black;
+  font-weight: bold;
+}
+td, th {
+  padding: 6px;
+  border: 1px solid #ffa69e;
+  text-align: left;
+}
+
+th.table_title {
+  background-color: unset;
+}
+
+footer {
+  background-color: #ffa69e;
+  color: black;
+  height: 120px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+}
