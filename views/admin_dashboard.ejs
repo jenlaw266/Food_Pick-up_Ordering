@@ -12,23 +12,26 @@
 
         <table>
           <thead>
-            <tr><th colspan="5" class="table_title">ORDERS</th></tr>
+            <tr><th colspan="6" class="table_title">ORDERS</th></tr>
           <tr>
             <th>ID</th>
             <th>Order Name</th>
             <th>Phone Num</th>
             <th>Total Amount</th>
             <th>Order Status</th>
+            <th>ETA</th>
           </tr>
           </thead>
           <tbody>
             <% for(let order of ordersDb) { %>
+              <div><%= order %></div>
               <tr>
                 <td><a href="/admin/<%= order['id'] %>"><%= order["id"] %></a></td>
                 <td><%= order["name"] %></td>
                 <td><%= order["phone"] %></td>
                 <td><%= order["subtotal"] %></td>
                 <td><%= order["status"] %></td>
+                <td><%= order["order_datetime"] %></td>
               </tr>
             <% } %>
           </tbody>
