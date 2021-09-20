@@ -30,11 +30,13 @@
 
     <h3>Menu</h3>
 
-    <div class="main-carousel">
-      <div class="carousel-cell"><img src="images/1.jpeg" class="item" id="Carne Asada Fries"></div>
-      <div class="carousel-cell"><img src="images/2.jpeg" class="item" id="Bulgogi Steak Tacos (3)"></div>
-      <div class="carousel-cell"><img src="images/3.jpeg" class="item" id="Baja Fish Burritos"></div>
-      <div class="carousel-cell"><img src="images/4.jpeg" class="item" id="Churro Bites"></div>
+    <div class="container">
+      <div class="carousel">
+        <img src="images/1.jpeg" class="item" id="1">
+        <img src="images/2.jpeg" class="item" id="2">
+        <img src="images/3.jpeg" class="item" id="3">
+        <img src="images/4.jpeg" class="item" id="4">
+      </div>
     </div>
 
     <div class="arrows">
@@ -44,18 +46,32 @@
 
   </div>
 
-  <p>name of food</p>
-  <p>description of food</p>
-  <button class="plus">+</button>
-  <label class="qty">0</label>
-  <button class="minus">-</button>
-  <br>
-  <button class="add-to-cart"> add to cart</button>
-  <br>
-  <button class="order"> order here</button>
-  <br>
-  <ul class="chart"></ul>
+  <div class="bottom-page">
+    <div class="description">
+      <p class="food-name"><strong>name of food</strong></p>
+      <p class="food-desc">description of food</p>
+      <p class="food-price">price of food</p>
+    </div>
 
+    <div class="shopping-cart">
+      <button class="plus">+</button>
+      <label class="qty">0</label>
+      <button class="minus">-</button>
+      <br>
+      <button class="add-to-cart"> add to cart</button>
+      <br>
+      <ul class="chart"></ul>
+    </div>
+
+    <div class="customer-form">
+      <form class="customer">
+        <input type="text" name="customer-name" placeholder="name">
+        <input type="tel" name="cutomer-number" placeholder="phone number">
+      </form>
+      <br>
+      <button class="order"> order here</button>
+    </div>
+  </div>
 </body>
 
 </html>

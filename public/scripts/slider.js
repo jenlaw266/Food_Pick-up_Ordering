@@ -9,12 +9,12 @@ $(() => {
   $right.on("click", () => {
     console.log("current img", currentImg);
     if (currentImg === 4) {
-      $(".main-carousel").animate({
+      $(".carousel").animate({
         left: `+=${menuLength}`,
       });
       currentImg = 0;
     }
-    $(".main-carousel").animate({
+    $(".carousel").animate({
       left: `-=${picWidth}`,
     });
     currentImg++;
@@ -24,12 +24,12 @@ $(() => {
     console.log("left click");
     console.log("current img", currentImg);
     if (currentImg === 1) {
-      $(".main-carousel").animate({
+      $(".carousel").animate({
         left: `-=${menuLength}`,
       });
       currentImg = $(".item").length + 1;
     }
-    $(".main-carousel").animate({
+    $(".carousel").animate({
       left: `+=${picWidth}`,
     });
     currentImg--;
@@ -45,26 +45,17 @@ const turnActive = function () {
   if ($(".active").length > 0) {
     $(".active").removeClass("active");
     $("p").removeClass("active");
-    $(".qty").text(0);
-    console.log("remove");
   }
-  console.log("enter", this.id);
+
+  console.log("img id:", this.id);
   $(this).addClass("active");
-  $("p").addClass("active"); //show description
-};
 
-/*
-
-  const desc = getDish(this.id);
-  $("p").append(desc);
+  //display information about the current slide/dish
   $("p").addClass("active");
-  $(".qty").addClass("active");
-
-  $('.main-carousel').flickity({
-  imagesLoaded: true,
-  cellAlign: 'left',
-  contain: true
+  //need to import??
+  getDish(this.id).then((dish) => {
+    $(".food-name").append(dish.item);
+    $(".food-desc").append(dish.description);
+    $(".food-price").append(dish.price);
   });
-
-
- */
+};
