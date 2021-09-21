@@ -4,6 +4,14 @@
    <!-- Top nav bar (fixed) -->
    <nav>
     <span class="logo">LOGO</span>
+    <span class="date_time">
+      <%
+      let date = new Date();
+      const options = {year: 'numeric', month: 'long', day: 'numeric',timeZone: 'America/Edmonton' };
+      %>
+      <%= date.toLocaleDateString('en-CA',options)  %>
+      <%= date.toLocaleTimeString('en-CA', {timeZone: 'America/Edmonton'}) %>
+    </span>
     <span class="nav_welcome">Welcome   Admin</span>
   </nav>
     <!-- New tweet post and tweets container-->
@@ -30,7 +38,7 @@
                 <td><%= order["phone"] %></td>
                 <td><%= order["subtotal"] %></td>
                 <td><%= order["status"] %></td>
-                <td><%= order["order_datetime"] %></td>
+                <td><%=  order["order_datetime"].toLocaleTimeString('en-CA', {timeZone: 'America/Edmonton'}) %></td>
               </tr>
             <% } %>
           </tbody>

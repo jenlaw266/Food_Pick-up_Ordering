@@ -4,6 +4,14 @@
  <!-- Top nav bar (fixed) -->
  <nav>
   <span class="logo">LOGO</span>
+  <span class="date_time">
+    <%
+    let date = new Date();
+    const options = {year: 'numeric', month: 'long', day: 'numeric',timeZone: 'America/Edmonton' };
+    %>
+    <%= date.toLocaleDateString('en-CA',options)  %>
+    <%= date.toLocaleTimeString('en-CA', {timeZone: 'America/Edmonton'}) %>
+  </span>
   <span class="nav_welcome">Welcome   Admin</span>
 </nav>
   <!-- New tweet post and tweets container-->
@@ -35,11 +43,12 @@
       </table>
     </section>
     <form class="form-inline" action="/admin/<%= orderId %>" method="POST">
-      <div class="form-group mb-2">
-        <label for="maxTime">Estimated Time (minutes):</label>
-
-        <input class="form-control" type="text" name="maxTime" value="<%=maxTime%>" placeholder="0" style="width: 300px; margin: 1em">
-        <button type="submit" class="btn btn-primary">Submit</button>
+      <div class="form-group mb-2"><br>
+        <label for="maxTime">Estimated Time (minutes) : <%=maxTime%></label>
+        <input class="form-control" type="text" size="5" name="maxTime" value="<%=maxTime%>" hidden placeholder="0"><br>
+        <label for="maxTime">Add Extra Time (minutes)   :</label>
+        <input class="form-control" type="text" size="5" name="addTime" value="0" placeholder="0"><br><br>
+        <button type="submit" class="btn btn-primary">ACCEPT ORDER</button>
       </div>
     </form>
 

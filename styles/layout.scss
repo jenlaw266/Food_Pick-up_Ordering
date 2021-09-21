@@ -18,6 +18,15 @@ body {
   overflow: hidden;
 }
 
+
+.btn-primary {
+  background-color: #ffa69e;
+    padding: 10px;
+    border: 1px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
 .carousel {
   display: flex;
   position: relative;
