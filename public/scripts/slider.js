@@ -51,7 +51,7 @@ const turnActive = function () {
   $("p").addClass("active");
 
   $.ajax({
-    url: `/product-info/${this.id}`,
+    url: `/api/product-info/${this.id}`,
     method: "GET",
     success: (dish) => {
       appendInfo(dish);

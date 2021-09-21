@@ -2,10 +2,14 @@
 <html lang="en">
 
 <head>
-  <title>Home Page</title>
+  <title>deLIGHT Home</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,600;1,300;1,600&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -22,11 +26,13 @@
 </head>
 
 <body>
-  <h2>Header</h2>
+  <nav class="banner">
+    <img src="images/banner_flags.png" class="banner-flags" id="flag1">
+    <img src="images/midterm_logo.png" class="logo">
+    <img src="images/banner_flags.png" class="banner-flags" id="flag2">
+  </nav>
 
   <div class="menu">
-
-    <h3>Menu</h3>
 
     <div class="container">
       <div class="carousel">
@@ -36,6 +42,10 @@
         <img src="images/4.jpeg" class="item" id="4">
         <div class="restaurant-info">
           <h3>Restaurant Information</h3>
+          <div class="tenor-gif-embed" data-postid="20920369" data-share-method="host" data-aspect-ratio="1.19403"
+            data-width="100%"><a href="https://tenor.com/view/happy-taco-gif-20920369">Happy Taco Sticker</a>from <a
+              href="https://tenor.com/search/happy+taco-stickers">Happy Taco Stickers</a></div>
+          <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
           <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quo quis nihil architecto? Sed quasi vitae
             deleniti? Saepe, quo dolorum maiores ullam itaque nobis similique odio beatae porro cupiditate mollitia
             dolores.</p>
@@ -68,12 +78,12 @@
     </div>
 
     <div class="customer-form">
-      <form class="customer">
-        <input type="text" name="customer-name" placeholder="name">
-        <input type="tel" name="cutomer-number" placeholder="phone number">
+      <form class="customerForm" method="POST" action="/api/order-info">
+        <input type="text" name="customerName" placeholder="name">
+        <input type="tel" name="customerNumber" placeholder="phone number">
+        <button type="submit" class="order"> order here</button>
       </form>
       <br>
-      <button class="order"> order here</button>
     </div>
   </div>
 

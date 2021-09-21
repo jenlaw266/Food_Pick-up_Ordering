@@ -16,6 +16,12 @@
 
 ## MON
 - finish functionalities on customer/admin/order details
+- twilio works from the owner side (sending notification to customer)
+- customer page: 
+  - add items on shopping cart
+  - review orders (edit/delete quantity or items on cart)
+  - place order --> at the same time, insert new order to database and send a notification
+  - get a pop-up of food ETA to the customer page
 
 ## TUES
 - css/html/beautify/refactorin

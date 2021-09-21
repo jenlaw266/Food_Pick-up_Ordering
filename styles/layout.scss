@@ -1,19 +1,58 @@
 // See: https://sass-lang.com/
+$reg-font: 'Poppins', sans-serif;
+$black: rgb(0, 0, 0);
+$teal:rgb(48, 217, 200);
+$yellow:#fdf08b;
+$green: rgb(143, 202, 74);
+$white: rgb(255, 255, 255);
+$pink: rgb(255, 172, 223);
+$paddinghalf: 0.5em;
 
 * {
+  display: flex;
   box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
 }
 
 body {
   background-color: #eee;
+  width: 100%;
 
   h1 {
     color: #244751;
   }
 }
 
+.banner {
+  display: flex;
+  height: 10em;
+  background: $pink;
+  justify-content: center;
+}
+
+.logo, .banner-flags {
+  height: 100%;
+  background: $pink;
+}
+
+@media only screen and (max-width: 1024px) {
+  * {
+    background: $yellow;
+  }
+
+  html, body, .bottom-page {
+    flex-direction: column;
+  }
+}
+
+.menu {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
 .container {
-  width: 90%;
+  width: 95%;
   margin: auto;
   overflow: hidden;
 }
@@ -85,4 +124,8 @@ p {
 
 .food-price {
   width: 33%;
+}
+
+img {
+  padding: $paddinghalf;
 }
