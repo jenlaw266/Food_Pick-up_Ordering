@@ -6,6 +6,7 @@
  */
 
 const express = require("express");
+const twilio = require("../lib/twilio");
 const router = express.Router();
 const customer = require("../db/customer_query");
 
@@ -16,16 +17,20 @@ const customersRouter = (db) => {
   });
 
   //GET food info
-  router.get("/product-info/:id", (req, res) => {
+  router.get("/api/product-info/:id", (req, res) => {
     customer.getDish(req.params.id).then((result) => {
       res.send(result);
     });
   });
 
-  //POST add order operation ????????
-  router.post("/order-info", (req, res) => {
-    customer.addOrder(req.body.name, req.body.phone).then((result) => {
-      res.send(result);
+  //POST order operation ????????
+  router.post("/api/order-info", (req, res) => {
+    console.log(req.body, "body");
+    customer.addOrder("name", "1234567890", "data").then((diner) => {
+      console.log(diner);
+      twilio.smsToOwner(diner); //outside the .then?
+      res.status(201).send();
+      //return order.id;
     });
   });
 

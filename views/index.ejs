@@ -5,7 +5,7 @@
   <title>Home Page</title>
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-  <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css"> -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
@@ -68,12 +68,12 @@
     </div>
 
     <div class="customer-form">
-      <form class="customer">
-        <input type="text" name="customer-name" placeholder="name">
-        <input type="tel" name="cutomer-number" placeholder="phone number">
+      <form class="customerForm" method="POST" action="/api/order-info">
+        <input type="text" name="customerName" placeholder="name">
+        <input type="tel" name="customerNumber" placeholder="phone number">
+        <button type="submit" class="order"> order here</button>
       </form>
       <br>
-      <button class="order"> order here</button>
     </div>
   </div>
 

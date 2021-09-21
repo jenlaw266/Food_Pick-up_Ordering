@@ -19,22 +19,29 @@ const getDish = function (imgID) {
 };
 
 //customer add one order
-const addOrder = function (name, phone) {
+const addOrder = function (name, phone, all_items) {
+  console.log("addOrder name, phone", name, phone);
   return db
-    .query(`INSERT INTO orders (name, phone) VALUES($1, $2) RETURNING *`, [
-      name,
-      phone,
-    ])
+    .query(
+      `INSERT INTO orders (name, phone, all_items) VALUES($1, $2, $3) RETURNING name, phone`,
+      [name, phone]
+    )
     .then((res) => res.rows[0])
     .catch((err) => console.log("addOrder function error"));
 };
 //get order_id from the return above //dish_id = better to have html id as dish id and not the name?
 
-/* let queryString2 = `INSERT INTO line_item (order_id, dish_id, qty, subtotal) VALUES ($1, $2, $3, $4) RETURNING *`;
-const queryArray2 = [order_id, dish_id, qty, subtotal];
+const addLine = function (orderID, lines) {
+  for (const line of lines) {
+    db.query(
+      `INSERT INTO line_item (order_id, dish_id, qty, subtotal) VALUES ($1, $2, $3, $4) RETURNING *`,
+      [orderID, line.dish_id, line.qty, line.subtotal]
+    )
+      .then((res) => res.rows[0])
+      .catch((err) => console.log("addLine function error"));
+  }
+};
 
-const lines = [];
- */
 //when press add-to-cart
 //getDish - price - generate subtotal for each line
 //push line:{dish_id: dish_id, qty: qty, subtotal: subtotal} to lines
