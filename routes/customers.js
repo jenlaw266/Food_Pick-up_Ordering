@@ -23,15 +23,19 @@ const customersRouter = (db) => {
     });
   });
 
-  //POST order operation ????????
+  //POST order operation
   router.post("/api/order-info", (req, res) => {
-    console.log(req.body, "body");
-    customer.addOrder("name", "1234567890", "data").then((diner) => {
-      console.log(diner);
-      twilio.smsToOwner(diner); //outside the .then?
-      res.status(201).send();
-      //return order.id;
-    });
+    const data = {};
+    Object.assign(data, req.body);
+    delete data.customerName;
+    delete data.customerNumber;
+    customer
+      .addOrder(req.body.customerName, req.body.customerNumber, data)
+      .then((order) => {
+        twilio.smsToOwner(order);
+        customer.addLine(order);
+        res.status(201).send();
+      });
   });
 
   //POST edit qty operation
