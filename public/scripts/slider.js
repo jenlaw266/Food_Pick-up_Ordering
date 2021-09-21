@@ -1,9 +1,9 @@
 $(document).ready(function () {
-  const $left = $(".fas.fa-caret-left");
-  const $right = $(".fas.fa-caret-right");
+  const $left = $(".fas.fa-chevron-left");
+  const $right = $(".fas.fa-chevron-right");
 
   let currentImg = 1;
-  const picWidth = 640;
+  const picWidth = 440;
   const menuLength = picWidth * $(".item").length;
 
   $right.on("click", () => {
