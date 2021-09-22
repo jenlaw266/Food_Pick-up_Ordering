@@ -34,11 +34,37 @@
             <% for(let order of ordersDb) { %>
               <tr>
                 <td><a href="/admin/<%= order['id'] %>"><%= order["id"] %></a></td>
-                <td><%= order["name"] %></td>
-                <td><%= order["phone"] %></td>
-                <td><%= order["subtotal"] %></td>
-                <td><%= order["status"] %></td>
+
+
+                <% if(order["name"] !== '') { %>
+                  <td><%=  order["name"] %></td>
+                  <% } else { %>
+                    <td></td>
+                  <% } %>
+
+                <% if(order["phone"] !== '') { %>
+                    <td><%=  order["phone"] %></td>
+                    <% } else { %>
+                      <td></td>
+                <% } %>
+
+                <% if(order["subtotal"] !== '') { %>
+                      <td><%=  order["subtotal"] %></td>
+                      <% } else { %>
+                        <td></td>
+                      <% } %>
+
+                      <% if(order["status"] !== '') { %>
+                        <td><%=  order["status"] %></td>
+                        <% } else { %>
+                          <td></td>
+                        <% } %>
+
+                <% if(order["order_datetime"] !== null) { %>
                 <td><%=  order["order_datetime"].toLocaleTimeString('en-CA', {timeZone: 'America/Edmonton'}) %></td>
+                <% } else { %>
+                  <td></td>
+                <% } %>
               </tr>
             <% } %>
           </tbody>

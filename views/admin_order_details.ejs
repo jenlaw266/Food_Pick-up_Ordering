@@ -1,6 +1,5 @@
 <%- include('partials/_head') %>
 
-<<<<<<< HEAD
 <body>
  <!-- Top nav bar (fixed) -->
  <nav>
@@ -18,23 +17,26 @@
   <!-- New tweet post and tweets container-->
   <main id="container">
     <section id="new-tweet">
-=======
-  <body>
-    <!-- Top nav bar (fixed) -->
-    <nav>
-      <span class="logo">LOGO</span>
-      <span class="nav_welcome">Welcome Admin</span>
-    </nav>
-    <!-- New tweet post and tweets container-->
-    <main id="container">
-      <section id="new-tweet">
->>>>>>> 1d670145d2b0ea11fee5acc6dd236c29d57e6745
 
-        <table>
-          <thead>
+      <table>
+        <thead>
+          <tr><th colspan="5" class="table_title">ORDER DETAILS for <%= orderId %></th></tr>
+        <tr>
+          <th>ID</th>
+          <th>Dish name</th>
+          <th>Price</th>
+          <th>Qty</th>
+          <th>Sub Total</th>
+        </tr>
+        </thead>
+        <tbody>
+          <% for(let item of anOrder) { %>
             <tr>
-              <th colspan="5" class="table_title">ORDER DETAILS for <%= orderId %>
-              </th>
+              <td><%= item["id"] %></td>
+              <td><%= item["item"] %></td>
+              <td>$<%= item["price"] %></td>
+              <td><%= item["qty"] %></td>
+              <td>$<%= item["subtotal"] %></td>
             </tr>
           <% } %>
         </tbody>
@@ -46,15 +48,14 @@
         <input class="form-control" type="text" size="5" name="maxTime" value="<%=maxTime%>" hidden placeholder="0"><br>
         <label for="maxTime">Add Extra Time (minutes)   :</label>
         <input class="form-control" type="text" size="5" name="addTime" value="0" placeholder="0"><br><br>
-        <button type="submit" class="btn btn-primary">ACCEPT ORDER</button>
+        <button type="submit" id="accept-order" class="btn btn-primary">ACCEPT ORDER</button>
       </div>
     </form>
 
-    </main>
-    <footer>
+  </main>
+  <footer>
 
-    </footer>
+  </footer>
 
   </body>
-
-  </html>
+</html>
