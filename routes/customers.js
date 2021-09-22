@@ -53,6 +53,22 @@ const customersRouter = (db) => {
   // });
 
   // return the router
+  router.get("/api/order-status/:id", (req, res) => {
+  //   return db.query(
+  //     'SELECT status FROM orders WHERE id = $1;',[req.params.id]
+  //   )
+  //   .then((res) =>
+  //    { console.log("hi------------ ",res.rows[0]);
+  // })
+  //   .catch((err) => console.log(err));
+    customer.getOrderStatus(req.params.id).then((result) => {
+      console.log("result ",result);
+       res.send(result);
+    //return result;
+
+    });
+  });
+
   return router;
 };
 

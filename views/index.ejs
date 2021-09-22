@@ -10,10 +10,12 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,600;1,300;1,600&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-
+  <!-- CSS only -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+
+  <!-- JavaScript Bundle with Popper -->
 
   <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
 
@@ -23,6 +25,9 @@
   <script type="text/javascript" src="/scripts/modal.js"></script>
   <script type="text/javascript" src="/scripts/add-order.js"></script>
 
+
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 </head>
 
 <body>
@@ -86,13 +91,37 @@
       <br>
     </div>
   </div>
+  <div class="status">
 
-  <div class="modal">
+  </div>
+  <!-- <div class="modal">
     <div class="modal-background"></div>
     <div class="modal-content has-background-white py-5 px-5">
       <h3 class="title mb-6">Message here</h3>
     </div>
+  </div> -->
+
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+
+
+        </div>
+        <div class="modal-body">
+          <p>Some text in the modal.</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      </div>
+
+    </div>
   </div>
+
+
   <button id="owner-submit"> submit</button>
 </body>
 

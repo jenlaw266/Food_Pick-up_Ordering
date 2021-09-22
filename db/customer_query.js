@@ -42,6 +42,13 @@ const addLine = function (orderID, lines) {
   }
 };
 
+const getOrderStatus = function(orderID) {
+  return db.query(
+    'SELECT id,status,order_datetime FROM orders WHERE id = $1;',[orderID]
+  )
+  .then((res) => res.rows[0])
+  .catch((err) => console.log(err));
+}
 //when press add-to-cart
 //getDish - price - generate subtotal for each line
 //push line:{dish_id: dish_id, qty: qty, subtotal: subtotal} to lines
@@ -52,4 +59,4 @@ const addLine = function (orderID, lines) {
 
 //recieve owner's estimated time
 
-module.exports = { getDish, addOrder };
+module.exports = { getDish, addOrder, getOrderStatus };
