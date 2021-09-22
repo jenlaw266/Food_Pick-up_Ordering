@@ -75,13 +75,8 @@ const adminRouter = (db) => {
     })
     .then((response) =>{
       const ordersDb = response.rows;
-<<<<<<< HEAD
       //  smsToCustomer(ordersDb[0]["order_datetime"]);
       //   console.log(response.rows)
-=======
-        //smsToCustomer(ordersDb[0]["order_datetime"]);
-        console.log(response.rows)
->>>>>>> 1d670145d2b0ea11fee5acc6dd236c29d57e6745
         console.log("datetime ", ordersDb[0]["order_datetime"]);
     })
     .then(()=>{
