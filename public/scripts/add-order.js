@@ -42,6 +42,8 @@ $(() => {
     //console.log(lines);
     //console.log($(".fa-minus-circle"), "circle");
   };
+
+  //add to cart
   $(".add-to-cart").on("click", () => getItemInfo());
 
   //shopping cart button, delete function there.
@@ -55,7 +57,7 @@ $(() => {
       });
     });
 
-
+  //form submission
   $form = $(".customerForm");
   const postAndDisplayForm = (event) => {
     event.preventDefault();
