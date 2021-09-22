@@ -1,14 +1,14 @@
 $(document).ready(function () {
-  const $left = $(".fas.fa-caret-left");
-  const $right = $(".fas.fa-caret-right");
+  const $left = $(".fas.fa-chevron-left");
+  const $right = $(".fas.fa-chevron-right");
 
   let currentImg = 1;
-  const picWidth = 640;
+  const picWidth = 420;
   const menuLength = picWidth * $(".item").length;
 
   $right.on("click", () => {
     console.log("current img", currentImg);
-    if (currentImg === 4) {
+    if (currentImg === 6) {
       $(".carousel").animate({
         left: `+=${menuLength}`,
       });

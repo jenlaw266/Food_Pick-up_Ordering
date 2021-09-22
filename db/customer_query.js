@@ -18,24 +18,30 @@ const getDish = function (imgID) {
     .catch((err) => console.log("getDish function error"));
 };
 
-//customer add one order
+//add customer info to the orders table
 const addOrder = function (name, phone, all_items) {
-  console.log("addOrder name, phone", name, phone);
   return db
     .query(
-      `INSERT INTO orders (name, phone, all_items) VALUES($1, $2, $3) RETURNING name, phone`,
-      [name, phone]
+      `INSERT INTO orders (name, phone, all_items) VALUES($1, $2, $3) RETURNING *`,
+      [name, phone, all_items]
     )
     .then((res) => res.rows[0])
     .catch((err) => console.log("addOrder function error"));
 };
-//get order_id from the return above //dish_id = better to have html id as dish id and not the name?
 
-const addLine = function (orderID, lines) {
-  for (const line of lines) {
+//add every line from an order to the line_items table
+const addLine = function (order) {
+  const allItems = JSON.parse(order.all_items);
+
+  for (const line in allItems) {
     db.query(
-      `INSERT INTO line_item (order_id, dish_id, qty, subtotal) VALUES ($1, $2, $3, $4) RETURNING *`,
-      [orderID, line.dish_id, line.qty, line.subtotal]
+      `INSERT INTO line_items (order_id, dish_id, qty, subtotal) VALUES ($1, $2, $3, $4)`,
+      [
+        order.id,
+        allItems[line].dish_id,
+        allItems[line].qty,
+        allItems[line].subtotal,
+      ]
     )
       .then((res) => res.rows[0])
       .catch((err) => console.log("addLine function error"));
@@ -59,4 +65,4 @@ const getOrderStatus = function(orderID) {
 
 //recieve owner's estimated time
 
-module.exports = { getDish, addOrder, getOrderStatus };
+module.exports = { getDish, addOrder,addLine, getOrderStatus };
