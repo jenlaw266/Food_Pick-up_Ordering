@@ -32,7 +32,7 @@ const customersRouter = (db) => {
     customer
       .addOrder(req.body.customerName, req.body.customerNumber, data)
       .then((order) => {
-        twilio.smsToOwner(order);
+        //twilio.smsToOwner(order);
         customer.addLine(order);
         res.status(201).send();
       });

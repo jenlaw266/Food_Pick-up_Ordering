@@ -1,73 +1,98 @@
 $(() => {
   const lines = {};
-
-  //add check if item is already on the list function
-  //add delete add-to-cart function
-
-  $(".add-to-cart").on("click", () => {
+  const getItemInfo = () => {
     $(".item").each(function () {
       if ($(this).hasClass("active")) {
         $.ajax({
           url: `/api/product-info/${this.id}`,
           method: "GET",
-          success: (dish) => {
-            const $qty = $(".qty").text();
-            if ($qty !== 0) {
-              //
-              if (Object.keys(lines).length > 0) {
-                //check if item is aleady there
-              }
-
-              const subtotal = dish.price * $qty;
-              const count = Object.keys(lines).length;
-              const obj = {};
-              obj[count] = {
-                item: dish.item,
-                dish_id: dish.id,
-                qty: $qty,
-                subtotal: subtotal,
-              };
-              //add item to display
-              addItem(obj);
-              //add item to lines
-              Object.assign(lines, obj);
-            }
-            console.log(lines);
-          },
+          success: (dish) => storeInfo(dish),
           error: (err) => {
-            console.log("error: ", err);
+            console.log("getItemInfo error: ", err);
           },
         });
       }
     });
-  });
+  };
+  const storeInfo = (dish) => {
+    const $qty = Number($(".qty").text());
+    if ($qty !== 0) {
+      //add check if item is already on the list
+      if (lines[dish.id]) {
+        lines[dish.id].qty += $qty;
+        lines[dish.id].subtotal += dish.price * $qty;
+      } else {
+        const subtotal = dish.price * $qty;
+        const key = dish.id;
+        const obj = {};
+        obj[key] = {
+          item: dish.item,
+          dish_id: dish.id,
+          qty: $qty,
+          subtotal: subtotal,
+        };
+        console.log("lines", lines);
+
+        //add item to lines
+        Object.assign(lines, obj);
+      }
+      //add item short display
+      showAddItem(lines);
+    }
+    //console.log(lines);
+    //console.log($(".fa-minus-circle"), "circle");
+  };
+  $(".add-to-cart").on("click", () => getItemInfo());
+
+  //shopping cart button, delete function there.
+  $(".view-cart").on("click", () => {
+    $(".modal.cart").addClass("is-active");
+    viewCart(lines);
+    //delete item from add-to-cart
+    $(".fa-minus-circle").on("click", () => {
+        delete lines;
+        viewCart(lines);
+      });
+    });
+
 
   $form = $(".customerForm");
-  $form.on("submit", (event) => {
+  const postAndDisplayForm = (event) => {
     event.preventDefault();
 
-    const dataform = $form.serialize();
-    const datalines = jQuery.param(lines);
+    const formData = $form.serialize();
+    const linesData = jQuery.param(lines);
 
-    const data = dataform + "&" + datalines;
-    console.log(data);
+    const data = formData + "&" + linesData;
 
+    //post to order-info
     $.post("/api/order-info", data).then((res) => {
       console.log(res);
     });
 
+    //display order to customer
     $(".modal.customer").addClass("is-active");
+    $(".order-confirm").empty();
+    $(".total").empty();
     displayOrder(lines);
-  });
+  };
+  $form.on("submit", (event) => postAndDisplayForm(event));
 });
 
-const addItem = (food) => {
-  const $qty = $(".qty").text();
-  const key = Object.keys(food)[0];
-  if ($qty !== "0") {
-    const $oneOrder = `<li>${food[key].item}, quantity: ${food[key].qty}, amount: $${food[key].subtotal} <button>delete</button><li>`;
-    $(".item-list").append($oneOrder);
+const showAddItem = (lines) => {
+  for (const key in lines) {
+    const $order = `<li>${lines[key].item}, quantity: ${lines[key].qty}, amount: $${lines[key].subtotal}<li>`;
+    $(".item-list").html($order);
   }
+};
+
+const viewCart = (lines) => {
+  $(".cart-items").empty();
+  for (const key in lines) {
+    const $order = `<li>${lines[key].item}, quantity: ${lines[key].qty}, amount: $${lines[key].subtotal}`;
+    $(".cart-items").append($order);
+  }
+  $(".cart-items").append(`<i class="fas fa-minus-circle"></i><li>`);
 };
 
 const displayOrder = (lines) => {

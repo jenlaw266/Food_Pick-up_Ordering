@@ -1,8 +1,8 @@
 // See: https://sass-lang.com/
-$reg-font: 'Poppins', sans-serif;
+$reg-font: "Poppins", sans-serif;
 $black: rgb(0, 0, 0);
-$teal:rgb(48, 217, 200);
-$yellow:#fdf08b;
+$teal: rgb(48, 217, 200);
+$yellow: #fdf08b;
 $green: rgb(143, 202, 74);
 $white: rgb(255, 255, 255);
 $pink: rgb(255, 172, 223);
@@ -11,7 +11,7 @@ $paddinghalf: 0.5em;
 * {
   display: flex;
   box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 body {
@@ -30,7 +30,8 @@ body {
   justify-content: center;
 }
 
-.logo, .banner-flags {
+.logo,
+.banner-flags {
   height: 100%;
   background: $pink;
 }
@@ -40,7 +41,9 @@ body {
     background: $yellow;
   }
 
-  html, body, .bottom-page {
+  html,
+  body,
+  .bottom-page {
     flex-direction: column;
   }
 }
@@ -57,13 +60,12 @@ body {
   overflow: hidden;
 }
 
-
 .btn-primary {
   background-color: #ffa69e;
-    padding: 10px;
-    border: 1px;
-    border-radius: 5px;
-    cursor: pointer;
+  padding: 10px;
+  border: 1px;
+  border-radius: 5px;
+  cursor: pointer;
 }
 
 .carousel {
@@ -128,4 +130,8 @@ p {
 
 img {
   padding: $paddinghalf;
+}
+
+.fa-minus-circle {
+  font-size: 1em;
 }
