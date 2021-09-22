@@ -65,4 +65,4 @@ const getOrderStatus = function(orderID) {
 
 //recieve owner's estimated time
 
-module.exports = { getDish, addOrder,addLine, getOrderStatus };
+module.exports = { getDish, addOrder, addLine, getOrderStatus };

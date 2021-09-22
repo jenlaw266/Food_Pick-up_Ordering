@@ -1,9 +1,9 @@
 // See: https://sass-lang.com/
-$font-reg: "Poppins", sans-serif;
-$font-shadow: "Londrina Shadow", cursive;
-$font-fat: "Londrina Solid", cursive;
-$teal: rgb(48, 217, 200);
-$yellow: #fdf08b;
+$font-reg: 'Poppins', sans-serif;
+$font-shadow: 'Londrina Shadow', cursive;
+$font-fat: 'Londrina Solid', cursive;
+$teal:rgb(48, 217, 200);
+$yellow:#fdf08b;
 $green: rgb(143, 202, 74);
 $white: rgb(255, 255, 255);
 $pink: #e97676;
@@ -19,15 +19,15 @@ $marginhalf: 0.5em;
   background-color: white;
 }
 
+
 @media only screen and (max-width: 400px) {
+
   * {
     background-color: white;
     font-family: $font-reg;
   }
 
-  html,
-  body,
-  .bottom-page {
+  html, body, .bottom-page {
     flex-direction: column;
     width: 100%;
   }
@@ -53,12 +53,13 @@ $marginhalf: 0.5em;
 
   .bottom-page {
     order: 4;
-    margin-bottom: $margin1;
+    margin-bottom: $margin1
   }
 
   .model-customer {
     order: 5;
     width: 100%;
+
   }
 
   .banner {
@@ -82,8 +83,7 @@ $marginhalf: 0.5em;
     width: 100%;
   }
 
-  .fas.fa-chevron-left,
-  .fas.fa-chevron-right {
+  .fas.fa-chevron-left, .fas.fa-chevron-right {
     display: none;
   }
 
@@ -91,9 +91,8 @@ $marginhalf: 0.5em;
     opacity: 0.6;
   }
 
-  .restaurant-info,
-  .banner-flags {
-    display: none;
+  .restaurant-info, .banner-flags {
+    display:none
   }
 
   img {
@@ -108,8 +107,7 @@ $marginhalf: 0.5em;
     flex-direction: column;
   }
 
-  .plus,
-  .minus {
+  .plus, .minus {
     margin-left: 0.5em;
     margin-right: 0.5em;
   }
@@ -143,14 +141,13 @@ body {
   }
 }
 
+
 @media only screen and (min-width: 401px) {
   * {
     background: white;
   }
 
-  html,
-  body,
-  .bottom-page {
+  html, body, .bottom-page {
     flex-direction: column;
     width: 100%;
   }
@@ -218,7 +215,7 @@ body {
   }
 
   .fas:hover {
-    color: $green;
+    color:$green;
   }
 
   // .arrows {
@@ -229,10 +226,7 @@ body {
   //   top: -275px;
   // }
 
-  .bottom-page,
-  .description,
-  .shopping-cart,
-  .customer-form {
+  .bottom-page, .description, .shopping-cart, .customer-form {
     display: flex;
     // justify-content: space-around;
     padding: $padding1;
@@ -268,6 +262,7 @@ body {
     flex-direction: column;
   }
 }
+
 
 button {
   background-color: black;
@@ -336,13 +331,13 @@ li {
   align-items: center;
 }
 
-.customerForm,
-.order-info {
+.customerForm, .order-info {
   flex-direction: column;
   align-items: center;
   width: 100%;
   margin: 0.35em;
 }
+
 .modal-body p {
   font-weight: 600;
 }
