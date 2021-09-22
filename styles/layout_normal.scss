@@ -1,0 +1,206 @@
+// See: https://sass-lang.com/
+$font-reg: 'Poppins', sans-serif;
+$font-shadow: 'Londrina Shadow', cursive;
+$font-fat: 'Londrina Solid', cursive;
+$teal:rgb(48, 217, 200);
+$yellow:#fdf08b;
+$green: rgb(143, 202, 74);
+$white: rgb(255, 255, 255);
+$pink: #e97676;
+$padding1: 1em;
+$margin1: 1em;
+$margin95: 0.95em;
+
+* {
+  display: flex;
+  box-sizing: border-box;
+  font-family: $font-reg;
+  // width: 100%;
+}
+
+body {
+  width: 100%;
+  flex-direction: column;
+
+  h1 {
+    color: #244751;
+  }
+}
+
+.banner {
+  display: flex;
+  height: 10em;
+  background: $pink;
+  justify-content: center;
+  // margin: $margin1;
+  overflow: hidden;
+}
+
+.banner-flags {
+  background: $pink;
+  height: 80%;
+  width: 500px;
+}
+
+.logo {
+  background: $pink;
+  height: 85%;
+  width: 150px;
+}
+
+@media only screen and (max-width: 1024px) {
+  * {
+    background: white;
+  }
+
+  html, body, .bottom-page {
+    flex-direction: column;
+    width: 100%;
+  }
+}
+
+.menu {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  min-width: 420px;
+}
+
+.container {
+  min-width: 420px;
+  height: 360px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel {
+  display: flex;
+  position: relative;
+  width: 420px;
+}
+
+i {
+  display: flex;
+  width: 50px;
+  height: 50px;
+  justify-content: center;
+  color: black;
+}
+
+.item {
+  opacity: 0.6;
+}
+
+.restaurant-info {
+  margin: $margin1;
+}
+
+
+.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+p {
+  visibility: hidden;
+}
+
+.fas {
+  font-size: 5em;
+}
+
+.fas:hover {
+  color:$green;
+}
+
+// .arrows {
+//   display: flex;
+//   justify-content: space-between;
+//   // 551/2 = 275 - half the height of the menu div
+//   position: relative;
+//   top: -275px;
+// }
+
+.bottom-page, .description, .shopping-cart, .customer-form {
+  display: flex;
+  // justify-content: space-around;
+  padding: $padding1;
+  overflow: hidden;
+}
+
+.restaurant-info {
+  background: white;
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.about-title {
+  width: 100%;
+  font-family: $font-shadow;
+  font-size: 2em;
+}
+
+.taco {
+  background: white;
+  width: 100%;
+}
+
+
+.description {
+  flex-direction: column;
+}
+
+// .food-name {
+//   width: 33%;
+// }
+
+// .food-desc {
+//   width: 34%;
+// }
+
+// .food-price {
+//   width: 33%;
+// }
+
+img {
+  margin: $margin1;
+  // width: 400px;
+}
+
+// .owner-submit:before {
+//   content: "\f07a";
+//   display: inline-block;
+//   font: normal normal normal 14px/1 FontAwesome;
+//   font-size: inherit;
+//   text-rendering: auto;
+//   -webkit-font-smoothing: antialiased;
+//   -moz-osx-font-smoothing: grayscale;
+//   color: white;
+// }
+
+button {
+  background-color: black;
+  border: none;
+  color: white;
+  padding: 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  border-radius: 12px;
+  height: 2em;
+  box-sizing: border-box;
+}
+
+button:hover {
+  background-color: $pink;
+}
+
+.modal-content.has-background-white.py-5.px-5 {
+  display: flex;
+  flex-direction: column;
+}

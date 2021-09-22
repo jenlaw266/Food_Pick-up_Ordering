@@ -3,6 +3,7 @@
 
 <head>
   <!-- <title>deLIGHT Home</title> -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -19,14 +20,16 @@
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
+  <!-- <link rel="stylesheet" type="text/css" href="/vendor/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="/vendor/slick/slick-theme.css"/> -->
 
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/slider.js"></script>
+
   <script type="text/javascript" src="/scripts/quantity.js"></script>
   <script type="text/javascript" src="/scripts/modal.js"></script>
   <script type="text/javascript" src="/scripts/add-order.js"></script>
-
 </head>
 
 <body>
@@ -40,29 +43,29 @@
     <i class="fas fa-chevron-left"></i>
     <div class="container">
       <div class="carousel">
-        <!-- <div class="restaurant-info" id="info2">
-          <h3>Restaurant Information</h3>
-          <div class="tenor-gif-embed" data-postid="20920369" data-share-method="host" data-aspect-ratio="1.19403" data-width="100%"><a href="https://tenor.com/view/happy-taco-gif-20920369">Happy Taco Sticker</a>from <a href="https://tenor.com/search/happy+taco-stickers">Happy Taco Stickers</a></div> <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-
-        </div> -->
         <img src="images/1.jpeg" class="item" id="1">
         <img src="images/2.jpeg" class="item" id="2">
         <img src="images/3.jpeg" class="item" id="3">
         <img src="images/4.jpeg" class="item" id="4">
-        <div class="restaurant-info" id="info2">
-          <h3>Restaurant Information</h3>
-          <div class="tenor-gif-embed" data-postid="20920369" data-share-method="host" data-aspect-ratio="1.19403"
-            data-width="100%"><a href="https://tenor.com/view/happy-taco-gif-20920369">Happy Taco Sticker</a>from <a
-              href="https://tenor.com/search/happy+taco-stickers">Happy Taco Stickers</a></div>
-          <script type="text/javascript" async src="https://tenor.com/embed.js"></script>
-
+        <div class="restaurant-info">
+          <h3 class="about-title">deLIGHTed to have you here!</h3>
+          <img src="images/happy-taco.gif" class="taco">
+          <h4 class=about-description">deLIGHT Tex Mex was founded in 2021 by 3 hungry students from Lighthouse Labs
+            during a midterm. </h4>
         </div>
+
+        <!-- <div id="car1"><img src="images/1.jpeg" class="item" id="1"></div>
+        <div id="car2"><img src="images/2.jpeg" class="item" id="2"></div>
+        <div id="car3"><img src="images/3.jpeg" class="item" id="3"></div>
+        <div id="car4"><img src="images/4.jpeg" class="item" id="4"></div>
+        <div id="car5"class="restaurant-info">
+          <h3 class="about-title">deLIGHTed to have you here!</h3>
+          <img src="images/happy-taco.gif" class="taco">
+          <h4 class=about-description">deLIGHT Tex Mex was founded in 2021 by 3 hungry students from Lighthouse Labs during a midterm. </h4>
+        </div> -->
       </div>
     </div>
     <i class="fas fa-chevron-right"></i>
-    <!-- <div class="arrows">
-    </div> -->
-
   </div>
 
   <div class="bottom-page">
@@ -73,53 +76,58 @@
     </div>
 
     <div class="shopping-cart">
-      <button class="plus">+</button>
-      <label class="qty">1</label>
-      <button class="minus">-</button>
-      <br>
-      <button class="add-to-cart"> add to cart</button>
-      <br>
-      <ul class="item-list"></ul>
-      <br>
-      <button class="view-cart">view cart</button>
-    </div>
-
-    <div class="customer-form">
-      <form class="customerForm" method="POST" action="/api/order-info">
-        <input type="text" name="customerName" placeholder="name">
-        <input type="tel" name="customerNumber" placeholder="phone number">
-        <button type="submit" class="order"> order here</button>
-      </form>
-      <br>
+      <div class="qty-buttons">
+        <button class="plus">+</button>
+        <label class="qty">1</label>
+        <button class="minus">-</button>
+      </div>
+      <div class="add-to-cart-button">
+        <button class="add-to-cart"> add to cart</button>
+      </div>
+      <!-- <ul class="item-list"></ul> -->
     </div>
   </div>
 
+  <!-- <div class="customer-form">
+    <form class="customerForm" method="POST" action="/api/order-info">
+      <input type="text" name="customerName" placeholder="name">
+      <input type="tel" name="customerNumber" placeholder="phone number">
+      <button type="submit" class="order"> Place Order</button>
+    </form>
+  </div> -->
+  <!--
   <div class="modal">
     <div class="modal-background"></div>
     <div class="modal-content has-background-white py-5 px-5">
       <h3 class="title mb-6">Message here</h3>
     </div>
-  </div>
-  <button id="owner-submit"> submit</button>
+  </div> -->
 
+  <button class="owner-submit">Shopping Cart</button>
 
   <div class="modal customer">
     <div class="modal-background"></div>
     <div class="modal-content has-background-white py-5 px-5">
       <h3 class="title mb-6">Order</h3>
+      <ul class="item-list"></ul>
       <ul class="order-confirm"></ul>
       <label>total:<label class="total"></label></label>
+      <div class="customer-form">
+        <form class="customerForm" method="POST" action="/api/order-info">
+          <input type="text" class="order-info" name="customerName" placeholder="name">
+          <input type="tel" class="order-info" name="customerNumber" placeholder="phone number">
+          <div class="submit-order-button">
+            <button type="submit" class="order"> Place Order</button>
+          </div>
+        </form>
+      </div>
     </div>
   </div>
-
-
-  <div class="modal cart">
-    <div class="modal-background"></div>
-    <div class="modal-content has-background-white py-5 px-5">
-      <h3 class="title mb-6">Order</h3>
-      <ul class="cart-items"></ul>
-    </div>
-  </div>
+  <!--
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="/vendor/slick/slick.min.js"></script>
+  <script type="text/javascript" src="/scripts/slider_slick.js"></script> -->
 </body>
 
 </html>

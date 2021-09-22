@@ -3,12 +3,12 @@ $(document).ready(function () {
   const $right = $(".fas.fa-chevron-right");
 
   let currentImg = 1;
-  const picWidth = 440;
+  const picWidth = 420;
   const menuLength = picWidth * $(".item").length;
 
   $right.on("click", () => {
     console.log("current img", currentImg);
-    if (currentImg === 4) {
+    if (currentImg === 6) {
       $(".carousel").animate({
         left: `+=${menuLength}`,
       });
