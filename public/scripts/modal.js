@@ -1,5 +1,5 @@
 $(() => {
-  const $submit = $("#owner-submit");
+  const $submit = $(".owner-submit");
   const $modalBg = $(".modal-background");
 
   $submit.on("click", () => {

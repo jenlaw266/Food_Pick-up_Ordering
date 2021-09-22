@@ -65,7 +65,7 @@ const addItem = (food) => {
   const $qty = $(".qty").text();
   const key = Object.keys(food)[0];
   if ($qty !== "0") {
-    const $oneOrder = `<li>${food[key].item}, quantity: ${food[key].qty}, amount: $${food[key].subtotal} <button>delete</button><li>`;
+    const $oneOrder = `<li>${food[key].item}, quantity: ${food[key].qty}, amount: $${food[key].subtotal} <button class="delete">delete</button><li>`;
     $(".item-list").append($oneOrder);
   }
 };
