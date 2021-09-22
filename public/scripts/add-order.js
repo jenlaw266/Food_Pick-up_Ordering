@@ -47,8 +47,8 @@ $(() => {
   $(".add-to-cart").on("click", () => getItemInfo());
 
   //shopping cart button, delete function there.
-  $(".view-cart").on("click", () => {
-    $(".modal.cart").addClass("is-active");
+  $(".owner-submit").on("click", () => {
+    $(".modal-cart").addClass("is-active");
     viewCart(lines);
     //delete item from add-to-cart
     $(".fa-minus-circle").on("click", () => {
@@ -87,14 +87,14 @@ const showAddItem = (lines) => {
     $(".item-list").html($order);
   }
 };
-
+//cart-items <---- item-list
 const viewCart = (lines) => {
-  $(".cart-items").empty();
+  $(".item-list").empty();
   for (const key in lines) {
     const $order = `<li>${lines[key].item}, quantity: ${lines[key].qty}, amount: $${lines[key].subtotal}`;
-    $(".cart-items").append($order);
+    $(".item-list").append($order);
   }
-  $(".cart-items").append(`<i class="fas fa-minus-circle"></i><li>`);
+  // $(".item-list").append(`<i class="fas fa-minus-circle"></i><li>`);
 };
 
 const displayOrder = (lines) => {
