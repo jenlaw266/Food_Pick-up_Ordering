@@ -343,6 +343,16 @@ li {
   width: 100%;
   margin: 0.35em;
 }
-.modal-body p {
+#modalStatus .modal-body p {
   font-weight: 600;
+  visibility: inherit;
+}
+
+#modalStatus .modal-content {
+  margin: 0;
+}
+
+
+#modalStatus {
+  background-color: transparent;
 }

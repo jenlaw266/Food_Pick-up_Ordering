@@ -16,7 +16,7 @@ const adminRouter = (db) => {
   router.get("/", (req, res) => {
     //  console.log("<---------- GET ADMIN PAGE ----------->");
     db.query(
-      "select orders.id, orders.name, orders.phone, sum(line_items.subtotal) as subTotal, orders.status, orders.order_datetime from orders join line_items on line_items.order_id = orders.id group by orders.id;"
+      "select orders.id, orders.name, orders.phone, sum(line_items.subtotal) as subTotal, orders.status, orders.order_datetime from orders join line_items on line_items.order_id = orders.id group by orders.id order by orders.id DESC;"
     )
       .then((response) => {
         console.log(response.rows);
@@ -70,7 +70,8 @@ const adminRouter = (db) => {
     const totalTime = Number(req.body.maxTime) + Number(req.body.addTime);
     console.log("add time ", Number(req.body.addTime));
     console.log("EXTRA TIME", totalTime);
-    //console.log("id", req.params.id);
+    req.session.order_id = req.params.id;
+    console.log("sessionid", req.session.order_id);
     db.query(
       `UPDATE orders SET status = 'PROCESSED', order_datetime = CURRENT_TIMESTAMP +  ($1 * interval '1 minute') WHERE id = $2;`,
       [totalTime, req.params.id]

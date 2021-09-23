@@ -57,7 +57,7 @@ const customersRouter = (db) => {
   // });
 
   // return the router
-  router.get("/api/order-status/:id", (req, res) => {
+  router.get("/api/order-status/", (req, res) => {
   //   return db.query(
   //     'SELECT status FROM orders WHERE id = $1;',[req.params.id]
   //   )
@@ -65,11 +65,11 @@ const customersRouter = (db) => {
   //    { console.log("hi------------ ",res.rows[0]);
   // })
   //   .catch((err) => console.log(err));
-    customer.getOrderStatus(req.params.id).then((result) => {
-      console.log("result ",result);
+    customer.getOrderStatus(req.session.order_id).then((result) => {
+    //  console.log("result ",req.session.order_id);
+    req.session = null;
        res.send(result);
     //return result;
-
     });
   });
 
