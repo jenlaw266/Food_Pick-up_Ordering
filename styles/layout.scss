@@ -1,9 +1,9 @@
 // See: https://sass-lang.com/
-$font-reg: 'Poppins', sans-serif;
-$font-shadow: 'Londrina Shadow', cursive;
-$font-fat: 'Londrina Solid', cursive;
-$teal:rgb(48, 217, 200);
-$yellow:#fdf08b;
+$font-reg: "Poppins", sans-serif;
+$font-shadow: "Londrina Shadow", cursive;
+$font-fat: "Londrina Solid", cursive;
+$teal: rgb(48, 217, 200);
+$yellow: #fdf08b;
 $green: rgb(143, 202, 74);
 $white: rgb(255, 255, 255);
 $pink: #e97676;
@@ -21,21 +21,18 @@ $marginhalf: 0.5em;
   background-color: white;
 }
 
-title {
-  display: none;
-}
-
 @media only screen and (max-width: 400px) {
-
   * {
     background-color: white;
     font-family: $font-reg;
   }
 
-  // html, body, .bottom-page {
-  //   flex-direction: column;
-  //   width: 100%;
-  // }
+  html,
+  body,
+  .bottom-page {
+    flex-direction: column;
+    width: 100%;
+  }
 
   .banner {
     order: 1;
@@ -63,13 +60,12 @@ title {
 
   .menu {
     order: 4;
+    margin-bottom: $margin1;
   }
 
   .bottom-page {
     order: 5;
-    margin-bottom: $margin1;
-    flex-direction: column;
-    align-items: center;
+    width: 100%;
   }
 
 
@@ -100,19 +96,46 @@ title {
     width: 100%;
   }
 
-  .fas.fa-chevron-left, .fas.fa-chevron-right {
+  .fas.fa-chevron-left,
+  .fas.fa-chevron-right {
     display: none;
   }
 
-  .restaurant-info, .banner-flags {
-    display:none
+  .item {
+    opacity: 0.6;
   }
 
-  // img {
-  //   margin: $margin1;
-  //   position: relative;
-  //   display: inline-block;
-  // }
+  .restaurant-info,
+  .banner-flags {
+    display: none;
+  }
+
+  img {
+    margin: $marginhalf;
+    position: relative;
+    display: inline-block;
+  }
+
+  .shopping-cart {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+
+  .plus,
+  .minus {
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+  }
+
+  .qty {
+    align-items: center;
+    background-color: white;
+    border-radius: 12px;
+    border: 1px solid rgb(0, 0, 0);
+    padding-left: 1em;
+    padding-right: 1em;
+  }
 
   // .bottom-page {
   //   display: none;
@@ -134,13 +157,14 @@ body {
   }
 }
 
-
 @media only screen and (min-width: 401px) {
   * {
     background: white;
   }
 
-  html, body {
+  html,
+  body,
+  .bottom-page {
     flex-direction: column;
     width: 100%;
   }
@@ -205,10 +229,21 @@ body {
   }
 
   .fas:hover {
-    color:$green;
+    color: $green;
   }
 
-  .description, .customer-form {
+  // .arrows {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   // 551/2 = 275 - half the height of the menu div
+  //   position: relative;
+  //   top: -275px;
+  // }
+
+  .bottom-page,
+  .description,
+  .shopping-cart,
+  .customer-form {
     display: flex;
     align-items: center;
     padding: $padding1;
@@ -400,7 +435,8 @@ li {
   align-items: center;
 }
 
-.customerForm, .order-info {
+.customerForm,
+.order-info {
   flex-direction: column;
   align-items: center;
   width: 100%;
@@ -411,3 +447,6 @@ li {
   font-weight: 600;
 }
 
+.fa-minus-circle {
+  font-size: 2em;
+}

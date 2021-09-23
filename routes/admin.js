@@ -79,12 +79,14 @@ const adminRouter = (db) => {
         return db.query(
           `select orders.id, orders.name, orders.phone, sum(line_items.subtotal) as subTotal, orders.status, orders.order_datetime from orders join line_items on line_items.order_id = orders.id
        WHERE orders.id=$1
-       group by orders.id;`,[req.params.id]);
-    })
-    .then((response) =>{
-      const ordersDb = response.rows;
-      //  smsToCustomer(ordersDb[0]["order_datetime"]);
-      //   console.log(response.rows)
+       group by orders.id;`,
+          [req.params.id]
+        );
+      })
+      .then((response) => {
+        const ordersDb = response.rows;
+        smsToCustomer(ordersDb[0]["order_datetime"], ordersDb[0].phone);
+        //   console.log(response.rows)
         console.log("datetime ", ordersDb[0]["order_datetime"]);
       })
       .then(() => {
