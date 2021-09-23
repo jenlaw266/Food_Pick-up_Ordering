@@ -21,6 +21,10 @@ $marginhalf: 0.5em;
   background-color: white;
 }
 
+title {
+  display: none;
+}
+
 @media only screen and (max-width: 400px) {
   * {
     background-color: white;
@@ -52,7 +56,7 @@ $marginhalf: 0.5em;
   .status {
     order: 3;
     position: sticky;
-    top: 12em;
+    top: 14em;
     z-index: 2;
     margin-left: $marginhalf;
     margin-right: $marginhalf;
@@ -60,6 +64,7 @@ $marginhalf: 0.5em;
 
   .menu {
     order: 4;
+    margin-top: 7em;
     margin-bottom: $margin1;
   }
 
@@ -114,12 +119,15 @@ $marginhalf: 0.5em;
     margin: $marginhalf;
     position: relative;
     display: inline-block;
+    width: 100%;
   }
 
-  .shopping-cart {
+  .owner-submit {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    font-family: $font-fat;
+    color: white;
   }
 
   .plus,
@@ -128,7 +136,7 @@ $marginhalf: 0.5em;
     margin-right: 0.5em;
   }
 
-  .qty {
+  .qty.active {
     align-items: center;
     background-color: white;
     border-radius: 12px;
@@ -196,19 +204,14 @@ body {
     align-items: center;
     justify-content: center;
     min-width: 420px;
+    margin-top: 3em;
   }
 
   .container {
-    width: 420px;
-    height: 360px;
+    width: 100%;
+    height: auto;
     margin: 0 auto;
     overflow: hidden;
-  }
-
-  .carousel {
-    display: flex;
-    position: relative;
-    width: 420px;
   }
 
   i {
@@ -231,14 +234,6 @@ body {
   .fas:hover {
     color: $green;
   }
-
-  // .arrows {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   // 551/2 = 275 - half the height of the menu div
-  //   position: relative;
-  //   top: -275px;
-  // }
 
   .bottom-page,
   .description,
@@ -275,10 +270,10 @@ body {
     width: 100%;
   }
 
-  img {
-    margin: 10px;
-    position: relative;
-    display: inline-block;
+  .status {
+    margin-left: $margin1;
+    bottom: 5em;
+    position: fixed;
   }
 
   .modal-content.has-background-white.py-5.px-5 {
@@ -317,7 +312,8 @@ button:hover {
 
 .container {
   flex-grow: 0;
-  width: 100%;
+  width: 620px;
+  // min-width: 620px;
 }
 
 .restaurant-info {
@@ -346,6 +342,13 @@ p.active, strong, .description.active, .qty-buttons.active, .add-to-cart-button.
   align-items: center;
 }
 
+img {
+  margin: 10px;
+  position: relative;
+  display: inline-block;
+  max-width: 600px;
+}
+
 .bottom-page {
   position: absolute;
   margin: $margin1;
@@ -358,10 +361,6 @@ p.active, strong, .description.active, .qty-buttons.active, .add-to-cart-button.
   font-size: 1.25em;
 }
 
-// .items-to-cart {
-//   flex-direction: column;
-// }
-
 .plus, .minus {
   margin-left: 0.5em;
   margin-right: 0.5em;
@@ -369,7 +368,7 @@ p.active, strong, .description.active, .qty-buttons.active, .add-to-cart-button.
   font-weight: 600;
 }
 
-.qty {
+.qty.active {
   align-items: center;
   background-color: white;
   border-radius: 12px;
@@ -386,12 +385,12 @@ p.active, strong, .description.active, .qty-buttons.active, .add-to-cart-button.
 
 .status h4{
   font-size: 1em;
-  // margin-left: $margin1;
   box-shadow: 3px 3px rgb(194, 169, 26);
   padding: $paddinghalf;
   border-radius: 12px;
   background-color: $yellow;
   align-items: center;
+  margin: 0;
 }
 
 .owner-submit {
@@ -399,6 +398,10 @@ p.active, strong, .description.active, .qty-buttons.active, .add-to-cart-button.
   font-size: 1.5em;
   font-family: $font-fat;
   color: white;
+  position: fixed;
+  bottom: 0;
+  width: 95%;
+  text-align: center;
 }
 
 .title.mb-6 {

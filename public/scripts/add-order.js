@@ -17,7 +17,7 @@ $(() => {
   };
 
   const storeInfo = (dish) => {
-    const $qty = Number($(".qty.active").text());
+    const $qty = Number($(".qty").text());
     console.log("qty:", $qty)
     if ($qty !== 0) {
       //add check if item is already on the list

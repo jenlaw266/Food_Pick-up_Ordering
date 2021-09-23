@@ -14,27 +14,29 @@
   <link href="https://fonts.googleapis.com/css2?family=Londrina+Shadow&family=Londrina+Solid&display=swap"
     rel="stylesheet">
 
+
+  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
-  <!-- CSS only -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+   <!-- CSS only -->
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" type="text/css" />
   <link rel="stylesheet" href="/vendor/border-box.css" type="text/css" />
   <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
 
-  <!-- <link rel="stylesheet" type="text/css" href="/vendor/slick/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="/vendor/slick/slick-theme.css"/> -->
+  <!-- <link rel="stylesheet" type="text/css" href="/vendor/slick-1.8.1/slick/slick.css"/>
+  <link rel="stylesheet" type="text/css" href="/vendor/slick-1.8.1/slick/slick-theme.css"/> -->
 
   <!-- JavaScript Bundle with Popper -->
 
-  <script type="text/javascript" src="/vendor/jquery-3.0.0.js"></script>
-
   <script type="text/javascript" src="/scripts/app.js"></script>
   <script type="text/javascript" src="/scripts/slider.js"></script>
+  <!-- <script type="text/javascript" src="/scripts/slider_slick.js"></script> -->
   <script type="text/javascript" src="/scripts/quantity.js"></script>
   <script type="text/javascript" src="/scripts/modal.js"></script>
   <script type="text/javascript" src="/scripts/add-order.js"></script>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
 </head>
 
@@ -51,7 +53,7 @@
     <i class="fas fa-chevron-left"></i>
     <div class="container">
       <div class="carousel">
-        <div></div>
+        <!-- <div class="filler"></div> -->
         <div class="img-container" id="1">
           <img src="images/1.jpeg" class="item" id="1">
           <div class="bottom-page" id="1"></div>
@@ -68,12 +70,12 @@
           <img src="images/4.jpeg" class="item" id="4">
           <div class="bottom-page" id="4"></div>
         </div>
-        <div class="restaurant-info">
+        <!-- <div class="restaurant-info">
           <h3 class="about-title">deLIGHTed to have you here!</h3>
           <img src="images/happy-taco.gif" class="taco">
           <h4 class=about-description">deLIGHT Tex Mex was founded in 2021 by 3 hungry students from Lighthouse Labs
             during a midterm. </h4>
-        </div>
+        </div> -->
       </div>
     </div>
     <i class="fas fa-chevron-right"></i>
@@ -115,20 +117,14 @@
       <div class="add-to-cart-button">
         <button class="add-to-cart"> add to cart</button>
       </div>
-<<<<<<< HEAD
-      <!-- <ul class="item-list"></ul> -->
-    <!-- </div>
-  </div> -->
-=======
       <ul class="display-item"></ul>
     </div>
   </div>
->>>>>>> c4949a6f46699b969ee0639a1780bcea035ff8ed
 
+  <!-- Modal content-->
   <div class="status"></div>
   <div class="modal fade" id="myModal" role="dialog">
     <div class="modal-dialog">
-      <!-- Modal content-->
       <div class="modal-content">
         <div class="modal-header"></div>
         <div class="modal-body">
@@ -141,7 +137,7 @@
     </div>
   </div>
 
-  <button class="shopping-cart-button">Shopping Cart</button>
+  <button class="owner-submit">Shopping Cart</button>
 
   <div class="modal customer">
     <div class="modal-background"></div>
@@ -163,6 +159,9 @@
     </div>
   </div>
   </div>
+  <!-- <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script> -->
+  <!-- <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+  <script type="text/javascript" src="/vendor/slick-1.8.1/slick/slick.min.js"></script> -->
 </body>
 
 </html>

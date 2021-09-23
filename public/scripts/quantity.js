@@ -1,28 +1,28 @@
-$(() => {
-  let quantity = $(".qty.active").text();
+// $(() => {
+//   let quantity = $(".qty").text();
 
-  $(".item.active").each(function () {
-    $(this).on("mouseenter", () => {
-      if ($(".active").length > 0) {
-        console.log("qty .active not sure")
-        $(".qty.active").text(1);
-        quantity = 1;
-      }
-    });
-  });
+//   $(".item").each(function () {
+//     $(this).on("mouseenter", () => {
+//       if ($(".active").length > 0) {
+//         console.log("qty .active not sure")
+//         $(".qty").text(1);
+//         quantity = 1;
+//       }
+//     });
+//   });
 
-  $(".plus.active").on("click", () => {
-    console.log("plusactive ++")
-    $(".qty.active").text(++quantity);
-  });
+//   $(".plus").on("click", () => {
+//     console.log("plusactive ++")
+//     $(".qty").text(++quantity);
+//   });
 
-  $(".minus.active").on("click", () => {
-    console.log("plusactive --")
-    if ($(".qty.active").text() > 0) {
-      $(".qty.active").text(--quantity);
-    } else {
-      $(".qty.active").text(0);
-      quantity = 0;
-    }
-  });
-});
+//   $(".minus").on("click", () => {
+//     console.log("plusactive --")
+//     if ($(".qty").text() > 0) {
+//       $(".qty").text(--quantity);
+//     } else {
+//       $(".qty").text(0);
+//       quantity = 0;
+//     }
+//   });
+// });
