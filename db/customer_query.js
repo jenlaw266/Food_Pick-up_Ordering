@@ -48,21 +48,13 @@ const addLine = function (order) {
   }
 };
 
-const getOrderStatus = function(orderID) {
-  return db.query(
-    'SELECT id,status,order_datetime FROM orders WHERE id = $1;',[orderID]
-  )
-  .then((res) => res.rows[0])
-  .catch((err) => console.log(err));
-}
-//when press add-to-cart
-//getDish - price - generate subtotal for each line
-//push line:{dish_id: dish_id, qty: qty, subtotal: subtotal} to lines
-//when press order
-//insert into orders - name, phone - return order_id
-//for lines.length generate queryString2 - insert values;
-//notify owner SMS
+const getOrderStatus = function (orderID) {
+  return db
+    .query("SELECT id,status,order_datetime FROM orders WHERE id = $1;", [
+      orderID,
+    ])
+    .then((res) => res.rows[0])
+    .catch((err) => console.log(err));
+};
 
-//recieve owner's estimated time
-
-module.exports = { getDish, addOrder,addLine, getOrderStatus };
+module.exports = { getDish, addOrder, addLine, getOrderStatus };
