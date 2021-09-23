@@ -25,6 +25,15 @@ title {
   display: none;
 }
 
+body {
+  width: 100%;
+  flex-direction: column;
+
+  h1 {
+    color: #244751;
+  }
+}
+
 @media only screen and (max-width: 400px) {
   * {
     background-color: white;
@@ -73,13 +82,6 @@ title {
     width: 100%;
   }
 
-
-  // .model-customer {
-  //   order: 5;
-  //   width: 100%;
-
-  // }
-
   .banner {
     display: flex;
     height: 10em;
@@ -88,10 +90,20 @@ title {
     overflow: hidden;
   }
 
+  .banner-flags {
+    display: none;
+  }
+
   .logo {
     background: $pink;
     // height: 85%;
     width: 120px;
+  }
+
+  .container {
+    flex: display;
+    align-items: center;
+    justify-content: center;
   }
 
   .carousel {
@@ -110,9 +122,12 @@ title {
     opacity: 0.6;
   }
 
-  .restaurant-info,
-  .banner-flags {
-    display: none;
+  .description.active {
+    align-items: center;
+  }
+
+  p {
+    font-size: 0.75em;
   }
 
   img {
@@ -143,25 +158,6 @@ title {
     border: 1px solid rgb(0, 0, 0);
     padding-left: 1em;
     padding-right: 1em;
-  }
-
-  // .bottom-page {
-  //   display: none;
-  // }
-
-  // .food-name.active, .food-desc.active, .food-price.active {
-  //   flex-direction: column;
-  //   font-size: 1em;
-  //   padding: 1em;
-  // }
-}
-
-body {
-  width: 100%;
-  flex-direction: column;
-
-  h1 {
-    color: #244751;
   }
 }
 
@@ -223,6 +219,13 @@ body {
     color: black;
   }
 
+  .img-container {
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    left: -15px;
+  }
+
   .restaurant-info {
     margin: $margin1;
   }
@@ -251,30 +254,11 @@ body {
     position: absolute;
   }
 
-  .restaurant-info {
-    background: white;
-    width: 100%;
-    height: auto;
-    display: flex;
-    flex-direction: column;
-  }
-
-  .about-title {
-    width: 100%;
-    font-family: $font-shadow;
-    font-size: 2em;
-  }
-
-  .taco {
-    background: white;
-    width: 100%;
-  }
-
-  .status {
-    margin-left: $margin1;
-    bottom: 5em;
-    position: fixed;
-  }
+  // .status {
+  //   margin-left: $margin1;
+  //   bottom: 5em;
+  //   position: fixed;
+  // }
 
   .modal-content.has-background-white.py-5.px-5 {
     display: flex;
@@ -312,7 +296,7 @@ button:hover {
 
 .container {
   flex-grow: 0;
-  width: 620px;
+  width: 600px;
   // min-width: 620px;
 }
 
@@ -326,6 +310,7 @@ button:hover {
 
 img.active {
   opacity: 0.2;
+  transition: .5s ease;
 }
 
 p, .items-to-cart, .bottom-page {
@@ -336,14 +321,7 @@ p.active, strong, .description.active, .qty-buttons.active, .add-to-cart-button.
   background-color: transparent;
 }
 
-.img-container {
-  position: relative;
-  justify-content: center;
-  align-items: center;
-}
-
 img {
-  margin: 10px;
   position: relative;
   display: inline-block;
   max-width: 600px;
@@ -356,9 +334,25 @@ img {
   align-items: center;
 }
 
-.description {
+// .bottom-page.active {
+//   position: absolute;
+//   margin: $margin1;
+//   padding: $padding5;
+//   align-items: center;
+
+//   transition: .5s ease;
+//   opacity: 0;
+//   top: 50%;
+//   left: 50%;
+// }
+
+.description.active {
   flex-direction: column;
-  font-size: 1.25em;
+  font-size: 2em;
+}
+
+.food-desc.active {
+  text-align: center;
 }
 
 .plus, .minus {
@@ -366,6 +360,11 @@ img {
   margin-right: 0.5em;
   color: white;
   font-weight: 600;
+  font-size: 1.5em;
+}
+
+.items-to-cart.active {
+  align-items: center;
 }
 
 .qty.active {
@@ -373,14 +372,21 @@ img {
   background-color: white;
   border-radius: 12px;
   border: 1px solid rgb(0, 0, 0);
-  padding-left: 1em;
-  padding-right: 1em;
+  padding: 1em;
+}
+
+.qty-buttons.active {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75em;
 }
 
 .add-to-cart {
   margin: $marginhalf;
   color: white;
   font-weight: 600;
+  font-size: 1.25em;
 }
 
 .status h4{
@@ -389,16 +395,18 @@ img {
   padding: $paddinghalf;
   border-radius: 12px;
   background-color: $yellow;
-  align-items: center;
-  margin: 0;
+  justify-content: center;
 }
 
+.status {
+  justify-content: center;
+}
 .owner-submit {
   margin:$marginhalf;
   font-size: 1.5em;
   font-family: $font-fat;
   color: white;
-  position: fixed;
+  // position: fixed;
   bottom: 0;
   width: 95%;
   text-align: center;
@@ -445,18 +453,9 @@ li {
   width: 100%;
   margin: 0.35em;
 }
-#modalStatus .modal-body p {
+
+.modal-body p {
   font-weight: 600;
-  visibility: inherit;
-}
-
-#modalStatus .modal-content {
-  margin: 0;
-}
-
-
-#modalStatus {
-  background-color: transparent;
 }
 
 .fa-minus-circle {
