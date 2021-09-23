@@ -14,7 +14,6 @@ let templateVars;
 const adminRouter = (db) => {
   // GET admin dashboard
   router.get("/", (req, res) => {
-    //  console.log("<---------- GET ADMIN PAGE ----------->");
     db.query(
       "select orders.id, orders.name, orders.phone, sum(line_items.subtotal) as subTotal, orders.status, orders.order_datetime from orders join line_items on line_items.order_id = orders.id group by orders.id order by orders.id DESC;"
     )
@@ -33,23 +32,17 @@ const adminRouter = (db) => {
 
   // GET operation order details
   router.get("/:id", (req, res) => {
-    //  console.log("<---------- GET INDIVIDUAL ORDER PAGE ----------->");
     db.query(
       `SELECT line_items.id, dishes.item, dishes.price, line_items.qty, line_items.subtotal FROM orders JOIN line_items ON line_items.order_id = orders.id JOIN dishes ON dishes.id = line_items.dish_id where orders.id = $1;`,
       [req.params.id]
     )
       .then((response) => {
-        //res.json(response.rows);
         const orderId = req.params.id;
         const anOrder = response.rows;
         templateVars = {
           anOrder,
           orderId,
         };
-        //return db.query("select max(estimated_time) from dishes join line_items on line_items.dish_id = dishes.id where order_id = 1;")
-        //console.log("anORDER:",anOrder);
-        //console.log("1 ", templateVars);
-        //res.render("admin_order_details", templateVars);
       })
       .then(() => {
         return db.query(
@@ -85,23 +78,12 @@ const adminRouter = (db) => {
     .then((response) =>{
       const ordersDb = response.rows;
       //  smsToCustomer(ordersDb[0]["order_datetime"]);
-      //   console.log(response.rows)
-        console.log("datetime ", ordersDb[0]["order_datetime"]);
       })
       .then(() => {
-        return db.query(`select orders.id, orders.name, orders.phone, sum(line_items.subtotal) as subTotal, orders.status, orders.order_datetime from orders join line_items on line_items.order_id = orders.id
-       group by orders.id;`);
-      })
-      .then((response) => {
-        const ordersDb = response.rows;
-        const templateVars = {
-          ordersDb,
-        };
-        res.render("admin_dashboard", templateVars);
+        res.redirect("/admin");
       })
       .catch((err) => console.log(err));
   });
-
   // return the router
   return router;
 };

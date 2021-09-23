@@ -1,6 +1,11 @@
 #container {
   width: 90%;
   margin: 30px auto;
+  min-height: 1000px;
+}
+.logo{
+  height: 85%;
+  width: 150px;
 }
 
 .btn-primary {
@@ -15,10 +20,12 @@ table {
   width: 100%;
   border-collapse: collapse;
 }
-/* Zebra striping */
-tr:nth-of-type(odd) {
-  background: #eee;
+
+
+.paint {
+  background-color:lightgoldenrodyellow;
 }
+
 th {
   background: #ffa69e;
   color: black;
@@ -39,6 +46,5 @@ footer {
   color: black;
   height: 120px;
   width: 100%;
-  position: fixed;
   bottom: 0;
 }

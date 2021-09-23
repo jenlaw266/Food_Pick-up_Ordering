@@ -3,24 +3,23 @@
 <body>
  <!-- Top nav bar (fixed) -->
  <nav>
-  <span class="logo">LOGO</span>
+  <span class="logo"><img src="../images/midterm_logo.png" class="logo"></span>
   <span class="date_time">
-    <%
-    let date = new Date();
-    const options = {year: 'numeric', month: 'long', day: 'numeric',timeZone: 'America/Edmonton' };
-    %>
+    <% var date = new Date() %>
+    <% date.setHours(date.getHours() - 7 ) %>
+    <%const options = {year: 'numeric', month: 'long', day: 'numeric',timeZone: 'America/Edmonton' };%>
     <%= date.toLocaleDateString('en-CA',options)  %>
-    <%= date.toLocaleTimeString('en-CA', {timeZone: 'America/Edmonton'}) %>
+    <%= date.toLocaleTimeString() %>
   </span>
   <span class="nav_welcome">Welcome   Admin</span>
 </nav>
-  <!-- New tweet post and tweets container-->
+  <!-- orders container-->
   <main id="container">
     <section id="new-tweet">
 
       <table>
         <thead>
-          <tr><th colspan="5" class="table_title">ORDER DETAILS for <%= orderId %></th></tr>
+          <tr><th colspan="5" class="table_title">ORDER DETAILS #<%= orderId %></th></tr>
         <tr>
           <th>ID</th>
           <th>Dish name</th>
