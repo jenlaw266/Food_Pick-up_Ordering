@@ -8,11 +8,11 @@ $(document).ready(function () {
 
   $right.on("click", () => {
     console.log("current img", currentImg);
-    if (currentImg === 6) {
+    if (currentImg === 5) {
       $(".carousel").animate({
         left: `+=${menuLength}`,
       });
-      currentImg = 0;
+      currentImg = 1;
     }
     $(".carousel").animate({
       left: `-=${picWidth}`,
@@ -37,18 +37,61 @@ $(document).ready(function () {
 
   //turn image to active when mouseenter
   $(".item").each(function () {
-    $(this).on("mouseenter", turnActive);
+    $(this).on("mouseenter", turnActive)
   });
+
+  // $(".bottom-page").each(function () {
+  //   $(this).on("mouseenter", turnActive)
+  // });
+
+  // $("p").each(function () {
+  //   $(this).on("mouseenter", turnActive)
+  // });
 });
+
+
+
 const turnActive = function () {
+
+  //TEST
+  const itemId = $(this).attr('id');
+  console.log("MOUSEOVER ITEM", itemId)
+
+  $(".bottom-page").html(`
+  <div class="description">
+    <p class="food-name"></p>
+    <p class="food-desc"></p>
+    <p class="food-price"></p>
+  </div>
+
+  <div class="items-to-cart">
+    <div class="qty-buttons">
+      <button class="minus">-</button>
+      <label class="qty">1</label>
+      <button class="plus">+</button>
+    </div>
+    <div class="add-to-cart-button">
+      <button class="add-to-cart"> add to cart</button>
+    </div>
+  </div>`);
+
+
+  //GOOD CODE
+
+  // $(".bottom-page").removeClass("active") //test might need to remove
   if ($(".active").length > 0) {
     $(".active").removeClass("active");
-    $("p").removeClass("active");
+    // $("p").removeClass("active");
+    $(this).siblings(".bottom-page").removeClass("active");
+    $(this).siblings(".bottom-page").find("*").removeClass("active");
   }
 
   $(this).addClass("active");
   //display information about the current slide/dish
-  $("p").addClass("active");
+  // $("p").addClass("active");
+  $(this).siblings(".bottom-page").addClass("active");
+  $(this).siblings(".bottom-page").find("*").addClass("active");
+  // $(".bottom-page").addClass("active") //test might need to remove
 
   $.ajax({
     url: `/api/product-info/${this.id}`,

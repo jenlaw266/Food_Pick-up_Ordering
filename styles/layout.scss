@@ -8,6 +8,8 @@ $green: rgb(143, 202, 74);
 $white: rgb(255, 255, 255);
 $pink: #e97676;
 $padding1: 1em;
+$padding5: 5em;
+$paddinghalf: 0.5em;
 $margin1: 1em;
 $marginhalf: 0.5em;
 
@@ -19,6 +21,9 @@ $marginhalf: 0.5em;
   background-color: white;
 }
 
+title {
+  display: none;
+}
 
 @media only screen and (max-width: 400px) {
 
@@ -27,10 +32,10 @@ $marginhalf: 0.5em;
     font-family: $font-reg;
   }
 
-  html, body, .bottom-page {
-    flex-direction: column;
-    width: 100%;
-  }
+  // html, body, .bottom-page {
+  //   flex-direction: column;
+  //   width: 100%;
+  // }
 
   .banner {
     order: 1;
@@ -43,24 +48,36 @@ $marginhalf: 0.5em;
   .owner-submit {
     order: 2;
     position: sticky;
-    top: 10.5em;
+    top: 7em;
     z-index: 2;
   }
 
-  .menu {
+  .status {
     order: 3;
+    position: sticky;
+    top: 12em;
+    z-index: 2;
+    margin-left: $marginhalf;
+    margin-right: $marginhalf;
+  }
+
+  .menu {
+    order: 4;
   }
 
   .bottom-page {
-    order: 4;
-    margin-bottom: $margin1
-  }
-
-  .model-customer {
     order: 5;
-    width: 100%;
-
+    margin-bottom: $margin1;
+    flex-direction: column;
+    align-items: center;
   }
+
+
+  // .model-customer {
+  //   order: 5;
+  //   width: 100%;
+
+  // }
 
   .banner {
     display: flex;
@@ -72,8 +89,8 @@ $marginhalf: 0.5em;
 
   .logo {
     background: $pink;
-    height: 85%;
-    width: 40%;
+    // height: 85%;
+    width: 120px;
   }
 
   .carousel {
@@ -87,39 +104,15 @@ $marginhalf: 0.5em;
     display: none;
   }
 
-  .item {
-    opacity: 0.6;
-  }
-
   .restaurant-info, .banner-flags {
     display:none
   }
 
-  img {
-    margin: $marginhalf;
-    position: relative;
-    display: inline-block;
-  }
-
-  .shopping-cart {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-  }
-
-  .plus, .minus {
-    margin-left: 0.5em;
-    margin-right: 0.5em;
-  }
-
-  .qty {
-    align-items: center;
-    background-color: white;
-    border-radius: 12px;
-    border: 1px solid rgb(0, 0, 0);
-    padding-left: 1em;
-    padding-right: 1em;
-  }
+  // img {
+  //   margin: $margin1;
+  //   position: relative;
+  //   display: inline-block;
+  // }
 
   // .bottom-page {
   //   display: none;
@@ -147,7 +140,7 @@ body {
     background: white;
   }
 
-  html, body, .bottom-page {
+  html, body {
     flex-direction: column;
     width: 100%;
   }
@@ -164,13 +157,13 @@ body {
   .banner-flags {
     background: $pink;
     height: 80%;
-    width: 500px;
+    width: 400px;
   }
 
   .logo {
     background: $pink;
-    height: 85%;
-    width: 150px;
+    // height: 85%;
+    width: 120px;
   }
 
   .menu {
@@ -182,7 +175,7 @@ body {
   }
 
   .container {
-    min-width: 420px;
+    width: 420px;
     height: 360px;
     margin: 0 auto;
     overflow: hidden;
@@ -199,11 +192,8 @@ body {
     width: 50px;
     height: 50px;
     justify-content: center;
+    align-items: center;
     color: black;
-  }
-
-  .item {
-    opacity: 0.6;
   }
 
   .restaurant-info {
@@ -218,19 +208,17 @@ body {
     color:$green;
   }
 
-  // .arrows {
-  //   display: flex;
-  //   justify-content: space-between;
-  //   // 551/2 = 275 - half the height of the menu div
-  //   position: relative;
-  //   top: -275px;
-  // }
-
-  .bottom-page, .description, .shopping-cart, .customer-form {
+  .description, .customer-form {
     display: flex;
-    // justify-content: space-around;
+    align-items: center;
     padding: $padding1;
     overflow: hidden;
+  }
+
+  .bottom-page {
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
   }
 
   .restaurant-info {
@@ -253,8 +241,9 @@ body {
   }
 
   img {
-    margin: $margin1;
-    // width: 400px;
+    margin: 10px;
+    position: relative;
+    display: inline-block;
   }
 
   .modal-content.has-background-white.py-5.px-5 {
@@ -262,7 +251,6 @@ body {
     flex-direction: column;
   }
 }
-
 
 button {
   background-color: black;
@@ -284,22 +272,103 @@ button:hover {
   background-color: $pink;
 }
 
+.fas.fa-chevron-left {
+  margin-left: $marginhalf;
+}
+
+.fas.fa-chevron-right {
+  margin-left: 0.25em;
+}
+
+.container {
+  flex-grow: 0;
+  width: 100%;
+}
+
+.restaurant-info {
+  width: 400px;
+}
+
 .active {
-  opacity: 1;
   visibility: visible;
 }
 
-p {
+img.active {
+  opacity: 0.2;
+}
+
+p, .items-to-cart, .bottom-page {
   visibility: hidden;
+}
+
+p.active, strong, .description.active, .qty-buttons.active, .add-to-cart-button.active {
+  background-color: transparent;
+}
+
+.img-container {
+  position: relative;
+  justify-content: center;
+  align-items: center;
+}
+
+.bottom-page {
+  position: absolute;
+  margin: $margin1;
+  padding: $padding5;
+  align-items: center;
 }
 
 .description {
   flex-direction: column;
-  padding: $padding1;
+  font-size: 1.25em;
+}
+
+// .items-to-cart {
+//   flex-direction: column;
+// }
+
+.plus, .minus {
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  color: white;
+  font-weight: 600;
+}
+
+.qty {
+  align-items: center;
+  background-color: white;
+  border-radius: 12px;
+  border: 1px solid rgb(0, 0, 0);
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.add-to-cart {
+  margin: $marginhalf;
+  color: white;
+  font-weight: 600;
+}
+
+.status h4{
+  font-size: 1em;
+  // margin-left: $margin1;
+  box-shadow: 3px 3px rgb(194, 169, 26);
+  padding: $paddinghalf;
+  border-radius: 12px;
+  background-color: $yellow;
+  align-items: center;
+}
+
+.owner-submit {
+  margin:$marginhalf;
+  font-size: 1.5em;
+  font-family: $font-fat;
+  color: white;
 }
 
 .title.mb-6 {
   font-family: $font-shadow;
+  font-size:2em;
 }
 
 .order {
@@ -308,18 +377,18 @@ p {
   font-family: $font-fat;
 }
 
-.delete {
-  background-color: rgb(243, 89, 42);
-  font-size: 3em;
-}
-
 .modal-content.has-background-white.py-5.px-5 {
   display: flex;
   flex-direction: column;
-  width: 80%;
-  height: 100%;
+  width: 70%;
+  height: auto;
   border-radius: 10px;
-  font-size: 0.75em;
+  font-size: 1.5em;
+}
+
+.modal.fade, modal-dialog {
+  width: 100%;
+  height: 100%;
 }
 
 .item-list {
@@ -341,3 +410,4 @@ li {
 .modal-body p {
   font-weight: 600;
 }
+

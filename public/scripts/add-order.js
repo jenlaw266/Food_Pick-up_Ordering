@@ -1,6 +1,7 @@
 $(() => {
   const lines = {};
   const getItemInfo = () => {
+    console.log("get item info function")
     $(".item").each(function () {
       if ($(this).hasClass("active")) {
         $.ajax({
@@ -14,8 +15,10 @@ $(() => {
       }
     });
   };
+
   const storeInfo = (dish) => {
-    const $qty = Number($(".qty").text());
+    const $qty = Number($(".qty.active").text());
+    console.log("qty:", $qty)
     if ($qty !== 0) {
       //add check if item is already on the list
       if (lines[dish.id]) {
@@ -44,9 +47,9 @@ $(() => {
   };
 
   //add to cart
-  $(".add-to-cart").on("click", () => getItemInfo());
-
+  $(".add-to-cart.active").on("click", () => getItemInfo());
   //shopping cart button, delete function there.
+
   $(".owner-submit").on("click", () => {
     $(".modal-cart").addClass("is-active");
     viewCart(lines);
