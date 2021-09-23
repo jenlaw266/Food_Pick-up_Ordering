@@ -55,11 +55,16 @@ body {
     width: 100%;
   }
 
-  .owner-submit {
+  .shopping-cart-button {
     order: 2;
     position: sticky;
     top: 7em;
     z-index: 2;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: $font-fat;
+    color: white;
   }
 
   .status {
@@ -135,14 +140,6 @@ body {
     position: relative;
     display: inline-block;
     width: 100%;
-  }
-
-  .owner-submit {
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    font-family: $font-fat;
-    color: white;
   }
 
   .plus,
@@ -401,7 +398,8 @@ img {
 .status {
   justify-content: center;
 }
-.owner-submit {
+
+.shopping-cart-button{
   margin:$marginhalf;
   font-size: 1.5em;
   font-family: $font-fat;
@@ -412,15 +410,22 @@ img {
   text-align: center;
 }
 
+// .shopping-cart-button {
+//   font-family: $font-fat;
+//   color: white;
+//   font-size: 1.5em;
+// }
+
 .title.mb-6 {
   font-family: $font-shadow;
-  font-size:2em;
+  font-size: 2em;
 }
 
 .order {
   color: white;
   background-color: $green;
   font-family: $font-fat;
+  font-size: 1em;
 }
 
 .modal-content.has-background-white.py-5.px-5 {

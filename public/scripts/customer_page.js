@@ -214,7 +214,7 @@ const viewCart = (lines) => {
   $(".total").empty();
   let total = 0;
   for (const key in lines) {
-    const $order = `<li>${lines[key].item}, quantity: ${lines[key].qty}, amount: $${lines[key].subtotal}`;
+    const $order = `<li> - ${lines[key].item} quantity: ${lines[key].qty} amount: $${lines[key].subtotal}`;
     $(".item-list").append($order);
     total += lines[key].subtotal;
   }
