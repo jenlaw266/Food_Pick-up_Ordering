@@ -5,21 +5,18 @@ A full-stack application for food order pick-up with notification features as a 
 
 ## Final Product
 #### Customer Order
-![Alt Text](https://media.giphy.com/media/tfaAALhsMOtVyfvr18/giphy.gif)
+<img src="https://media.giphy.com/media/tfaAALhsMOtVyfvr18/giphy.gif" width="900">
 
 #### Admin/Restaurant Owner Order Acceptance
-![Alt Text](https://media.giphy.com/media/0RcZcQlQs4womqXVDs/giphy.gif)
+<img src="https://media.giphy.com/media/0RcZcQlQs4womqXVDs/giphy.gif" width="900">
 
 #### Notification Pop-up for Customer
-![Alt Text](https://media.giphy.com/media/Sxd1rkNOmhNUfvfzYT/giphy.gif)
+<img src="https://media.giphy.com/media/Sxd1rkNOmhNUfvfzYT/giphy.gif" width="900">
 
 ## Getting Started
 
 1. Clone this repository.
 2. Use the `.env.example` to create and update the .env file with your correct local information 
-  - username: `labber` 
-  - password: `labber` 
-  - database: `midterm`
 3. Install dependencies: `npm i`
 4. Fix to binaries for sass: `npm rebuild node-sass`
 5. Reset database: `npm run db:reset`
