@@ -6,11 +6,11 @@ A full-stack food-ordering pick-up application with notification features as a f
 
 #### Home Page
 
-!["app1"](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app1.png?raw=true)
+!["app1"](https://github.com/jenlaw266/Food_Pick-up_Ordering/blob/master/public/images/app1.png?raw=true)
 
 #### Shopping Cart
 
-![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app2.png?raw=true)
+!["app2"](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app2.png?raw=true)
 
 #### Order Submitted by Customer
 
