@@ -1,32 +1,31 @@
 # Food Pick-up Ordering App
-___
 
 A full-stack food-ordering pick-up application with notification features as a fulfillment of Lighthouse Lab's midterm project.
 
 ## Final Product
 #### Home Page 
-![Alt text]("https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app1.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app1.png)
 
 #### Shopping Cart
-![Alt text]("https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app2.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app2.png)
 
 #### Order Submitted by Customer
-![Alt text]("https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app3.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app3.png)
 
 #### Admin Dashboard
-![Alt text]("https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app4.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app4.png)
 
 #### Confirmation By Admin
-![Alt text]("https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app5.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app5.png)
 
 #### Pop-up Display of Pick-up Time to Customer
-![Alt text]("https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app6.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app6.png)
 
 #### Twilio Notification to Admin
-![Alt text]("https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/twilio1.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/twilio1.png)
 
 #### Twilio Notification to Customer
-![Alt text]("https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/twilio2.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/twilio2.png)
 
 #### Customer Order - GIF
 <img src="https://media.giphy.com/media/tfaAALhsMOtVyfvr18/giphy.gif" width="1100">
