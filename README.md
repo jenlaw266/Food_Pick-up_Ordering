@@ -4,7 +4,7 @@ A full-stack food-ordering pick-up application with notification features as a f
 
 ## Final Product
 #### Home Page 
-![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app1.png?raw=true)
+![Alt text](/images/app1.png)
 
 #### Shopping Cart
 ![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app2.png?raw=true)
