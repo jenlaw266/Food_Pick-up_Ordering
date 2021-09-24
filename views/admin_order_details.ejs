@@ -4,29 +4,28 @@
  <!-- Top nav bar (fixed) -->
  <nav>
   <span class="logo"><img src="../images/midterm_logo.png" class="logo"></span>
-  <span class="date_time">
+  <span class="date_time"><b>
     <% var date = new Date() %>
     <% date.setHours(date.getHours() - 7 ) %>
     <%const options = {year: 'numeric', month: 'long', day: 'numeric',timeZone: 'America/Edmonton' };%>
     <%= date.toLocaleDateString('en-CA',options)  %>
-    <%= date.toLocaleTimeString() %>
+    <%= date.toLocaleTimeString() %></b>
   </span>
-  <span class="nav_welcome">Welcome   Admin</span>
+  <span class="nav_welcome"><b>Welcome Admin</b></span>
 </nav>
-  <!-- orders container-->
+<!-- orders container-->
   <main id="container">
     <section id="new-tweet">
-
       <table>
         <thead>
           <tr><th colspan="5" class="table_title">ORDER DETAILS #<%= orderId %></th></tr>
-        <tr>
-          <th>ID</th>
-          <th>Dish name</th>
-          <th>Price</th>
-          <th>Qty</th>
-          <th>Sub Total</th>
-        </tr>
+          <tr>
+            <th>ID</th>
+            <th>Dish name</th>
+            <th>Price</th>
+            <th>Qty</th>
+            <th>Sub Total</th>
+          </tr>
         </thead>
         <tbody>
           <% for(let item of anOrder) { %>
@@ -52,9 +51,6 @@
     </form>
 
   </main>
-  <footer>
-
-  </footer>
-
+  <footer></footer>
   </body>
 </html>

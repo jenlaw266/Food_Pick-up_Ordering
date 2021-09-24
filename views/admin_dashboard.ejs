@@ -11,17 +11,16 @@
    <!-- Top nav bar (fixed) -->
    <nav>
     <span class="logo"><img src="images/midterm_logo.png" class="logo"></span>
-    <span class="date_time">
-
+    <span class="date_time"><b>
       <% var date = new Date() %>
       <% date.setHours(date.getHours() - 7 ) %>
       <%const options = {year: 'numeric', month: 'long', day: 'numeric',timeZone: 'America/Edmonton' };%>
       <%= date.toLocaleDateString('en-CA',options)  %>
-      <%= date.toLocaleTimeString() %>
+      <%= date.toLocaleTimeString() %></b>
     </span>
-    <span class="nav_welcome">Welcome   Admin</span>
+    <span class="nav_welcome"><b>Welcome Admin</b></span>
   </nav>
-    <!-- New tweet post a container-->
+    <!-- Orders container-->
     <main id="container">
       <section id="dashboard-table">
 
@@ -39,50 +38,28 @@
           </thead>
           <tbody>
             <% for(let order of ordersDb) { %>
-
               <tr <%  if(order["status"] === 'PENDING') { %> class="paint" <% } %> >
                 <td><a href="/admin/<%= order['id'] %>"><%= order["id"] %></a></td>
 
+                <% if(order["name"] !== '') { %><td><%=  order["name"] %></td><% } else { %><td></td><% } %>
 
-                <% if(order["name"] !== '') { %>
-                  <td><%=  order["name"] %></td>
-                  <% } else { %>
-                    <td></td>
-                  <% } %>
+                <% if(order["phone"] !== '') { %><td><%=  order["phone"] %></td><% } else { %><td></td> <% } %>
 
-                <% if(order["phone"] !== '') { %>
-                    <td><%=  order["phone"] %></td>
-                    <% } else { %>
-                      <td></td>
-                <% } %>
+                <% if(order["subtotal"] !== '') { %><td><%=  order["subtotal"] %></td><% } else { %><td></td><% } %>
 
-                <% if(order["subtotal"] !== '') { %>
-                      <td><%=  order["subtotal"] %></td>
-                      <% } else { %>
-                        <td></td>
-                      <% } %>
-
-                <% if(order["status"] !== '') { %>
-                    <td><%=  order["status"] %></td>
-                    <% } else { %>
-                      <td></td>
-                        <% } %>
+                <% if(order["status"] !== '') { %><td><%=  order["status"] %></td><% } else { %><td></td><% } %>
 
                 <% if(order["order_datetime"] !== null) { %>
-                <td><%=  order["order_datetime"].toLocaleTimeString('en-CA', {timeZone: 'America/Edmonton'}) %></td>
-                <% } else { %>
-                  <td></td>
-                <% } %>
+                  <td><%=  order["order_datetime"].toLocaleTimeString('en-CA', {timeZone: 'America/Edmonton'}) %></td>
+                <% } else { %><td></td><% } %>
               </tr>
             <% } %>
           </tbody>
         </table>
-        </section>
+      </section>
 
     </main>
-    <footer>
+    <footer></footer>
 
-    </footer>
-
-    </body>
+  </body>
 </html>
