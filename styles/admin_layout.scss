@@ -23,50 +23,58 @@ $marginhalf: 0.5em;
   min-height: 1000px;
 }
 
-.logo{
-  height: 85%;
-  width: 150px;
-}
-
 .btn-primary {
-  background-color: $green;
+  background-color: black;
   padding: 10px;
   border: 1px;
   border-radius: 5px;
   cursor: pointer;
-  font-family: $font-shadow;
+  font-family: $font-fat;
+  color: white;
+  font-size: 1.5em;
+}
+
+.btn-primary:hover {
+  box-shadow: 5px 5px rgb(91, 134, 42);
+  background-color: $green;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  border-radius: 5px;
+  border-radius: 12px;
+  border: 1px solid black;
 }
 
-
 .paint {
-  background-color:lightgoldenrodyellow;
+  background-color: hsl(46, 85%, 74%);
 }
 
 th {
   background: #ffa69e;
   color: black;
   font-weight: bold;
-}
-td, th {
-  padding: 6px;
-  border: 1px solid #ffa69e;
   text-align: left;
+  padding: 0.5em;
+  padding-left: 2em;
+}
+
+td {
+  padding: 0.75em 2em;
+  border-width: 0.1px 0;
+  border-color: #000;
+  border-style: solid;
 }
 
 th.table_title {
-  background-color: unset;
+  background-color: black;
+  font-family: $font-shadow;
+  font-size: 2em;
+  color: white;
+  padding-left: 25px;
+
 }
 
-footer {
-  background-color: #ffa69e;
-  color: black;
-  height: 120px;
-  width: 100%;
-  bottom: 0;
+tr:hover td {
+  background:rgb(192, 223, 220)
 }
