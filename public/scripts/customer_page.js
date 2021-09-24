@@ -203,6 +203,9 @@ $(document).ready(function () {
     };
     $form.on("submit", (event) => postAndDisplayForm(event));
   });
+  $(".modal-background").on("click", () => {
+    $(".modal").removeClass("is-active");
+  });
 });
 
 const showAddItem = (line) => {
