@@ -65,6 +65,7 @@ body {
     flex-direction: column;
     font-family: $font-fat;
     color: white;
+    width: 90%;
   }
 
   .status {
@@ -174,7 +175,7 @@ body {
     display: flex;
     height: 10em;
     background: $pink;
-    justify-content: center;
+    justify-content: space-around;
     // margin: $margin1;
     overflow: hidden;
   }
@@ -197,7 +198,7 @@ body {
     align-items: center;
     justify-content: center;
     min-width: 420px;
-    margin-top: 3em;
+    margin-top: 12em;
   }
 
   .container {
@@ -245,6 +246,7 @@ body {
     overflow: hidden;
   }
 
+
   .bottom-page {
     flex-direction: column;
     width: 100%;
@@ -256,6 +258,10 @@ body {
   //   bottom: 5em;
   //   position: fixed;
   // }
+
+  .shopping-cart-button{
+    width: 98%;
+  }
 
   .modal-content.has-background-white.py-5.px-5 {
     display: flex;
@@ -404,17 +410,11 @@ img {
   font-size: 1.5em;
   font-family: $font-fat;
   color: white;
-  // position: fixed;
-  bottom: 0;
-  width: 95%;
+  position: fixed;
+  bottom: 0px;
+  width: 98%;
   text-align: center;
 }
-
-// .shopping-cart-button {
-//   font-family: $font-fat;
-//   color: white;
-//   font-size: 1.5em;
-// }
 
 .title.mb-6 {
   font-family: $font-shadow;
@@ -465,6 +465,11 @@ li {
 
 .fa-minus-circle {
   font-size: 2em;
+}
+
+.order-confirm {
+  font-weight: 600;
+  color: $green;
 }
 
 #modalStatus .modal-body p {

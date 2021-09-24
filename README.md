@@ -1,24 +1,45 @@
-LHL Node Skeleton
-=========
+# Food Pick-up Ordering App
 
-## Project Setup
+A full-stack food-ordering pick-up application with notification features as a fulfillment of Lighthouse Lab's midterm project.
 
-The following steps are only for _one_ of the group members to perform.
+## Final Product
+#### Home Page 
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app1.png?raw=true)
 
-1. Create your own copy of this repo using the `Use This Template` button, ideally using the name of your project. The repo should be marked Public
-2. Verify that the skeleton code now shows up in your repo on GitHub, you should be automatically redirected
-3. Clone your copy of the repo to your dev machine
-4. Add your team members as collaborators to the project so that they can push to this repo
-5. Let your team members know the repo URL so that they use the same repo (they should _not_ create a copy/fork of this repo since that will add additional workflow complexity to the project)
+#### Shopping Cart
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app2.png?raw=true)
 
+#### Order Submitted by Customer
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app3.png?raw=true)
+
+#### Admin Dashboard
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app4.png?raw=true)
+
+#### Confirmation By Admin
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app5.png?raw=true)
+
+#### Pop-up Display of Pick-up Time to Customer
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app6.png?raw=true)
+
+#### Twilio Notification to Admin
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/twilio1.png?raw=true)
+
+#### Twilio Notification to Customer
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/twilio2.png?raw=true)
+
+#### Customer Order - GIF
+<img src="https://media.giphy.com/media/tfaAALhsMOtVyfvr18/giphy.gif" width="1100">
+
+#### Admin Order Acceptance - GIF
+<img src="https://media.giphy.com/media/0RcZcQlQs4womqXVDs/giphy.gif" width="1100">
+
+#### Notification Pop-up for Customer - GIF
+<img src="https://media.giphy.com/media/Sxd1rkNOmhNUfvfzYT/giphy.gif" width="1100">
 
 ## Getting Started
 
-1. Create the `.env` by using `.env.example` as a reference: `cp .env.example .env`
-2. Update the .env file with your correct local information 
-  - username: `labber` 
-  - password: `labber` 
-  - database: `midterm`
+1. Clone this repository.
+2. Use the `.env.example` to create and update the .env file with your correct local information 
 3. Install dependencies: `npm i`
 4. Fix to binaries for sass: `npm rebuild node-sass`
 5. Reset database: `npm run db:reset`
@@ -26,6 +47,23 @@ The following steps are only for _one_ of the group members to perform.
 7. Run the server: `npm run local`
   - Note: nodemon is used, so you should not have to restart your server
 8. Visit `http://localhost:8080/`
+
+## Dependencies
+
+- Node 10.x or above
+- NPM 5.x or above
+- PG 6.x
+- Body-parser 1.19.0 or above
+- Bulma 0.9.3 or above
+- Chalk 2.4.2 or above
+- Cookie-session 1.4.0 or above
+- Dotenv 2.0.0 or above
+- Ejs 2.6.2 or above
+- Express 4.17.1 or above
+- Morgan 1.9.1 or above
+- Node-sass-middleware 0.11.0 or above
+- Pg-native 3.0.0 or above
+- Twilio 3.67.2 or above
 
 ## Warnings & Tips
 
@@ -35,9 +73,3 @@ The following steps are only for _one_ of the group members to perform.
 - Use the `npm run db:reset` command each time there is a change to the database schema or seeds. 
   - It runs through each of the files, in order, and executes them against the database. 
   - Note: you will lose all newly created (test) data each time this is run, since the schema files will tend to `DROP` the tables and recreate them.
-
-## Dependencies
-
-- Node 10.x or above
-- NPM 5.x or above
-- PG 6.x

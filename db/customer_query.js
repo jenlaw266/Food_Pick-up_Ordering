@@ -1,7 +1,3 @@
-//select description from food? where foodimg = src/url //or where food_name = $(activeimage.id)
-//select name from food
-// de we need a query for notifying the customer?
-
 require("dotenv").config();
 
 const { Client } = require("pg");
