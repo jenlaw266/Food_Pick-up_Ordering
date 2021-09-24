@@ -1,21 +1,46 @@
+// See: https://sass-lang.com/
+$font-reg: "Poppins", sans-serif;
+$font-shadow: "Londrina Shadow", cursive;
+$font-fat: "Londrina Solid", cursive;
+$teal: rgb(48, 217, 200);
+$yellow: #fdf08b;
+$green: rgb(143, 202, 74);
+$white: rgb(255, 255, 255);
+$pink: #e97676;
+$padding1: 1em;
+$padding5: 5em;
+$paddinghalf: 0.5em;
+$margin1: 1em;
+$marginhalf: 0.5em;
+
+* {
+  font-family: $font-reg;
+}
+
 #container {
   width: 90%;
   margin: 30px auto;
   min-height: 1000px;
 }
 
+.logo{
+  height: 85%;
+  width: 150px;
+}
 
 .btn-primary {
-  background-color: #ffa69e;
-    padding: 10px;
-    border: 1px;
-    border-radius: 5px;
-    cursor: pointer;
+  background-color: $green;
+  padding: 10px;
+  border: 1px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-family: $font-shadow;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
+  border-radius: 5px;
 }
 
 

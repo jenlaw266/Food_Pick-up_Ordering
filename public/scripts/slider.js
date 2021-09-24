@@ -3,18 +3,15 @@ $(document).ready(function () {
   const $right = $(".fas.fa-chevron-right");
 
   let currentImg = 1;
-  // const picWidth = 420;
-  // const menuLength = $picWidth * $(".item").length;
 
   $right.on("click", () => {
-    const $picWidth = $(".item").outerWidth(true);
+    const $picWidth = $(".item").width();
     const menuLength = $picWidth * $(".item").length;
     console.log("RIGHT CLICK current img", currentImg, "picWidth", $picWidth);
     console.log("MENULENGTH", menuLength)
     if (currentImg === $(".item").length) {
       $(".carousel").animate({
-        // left: `+=${menuLength}`,
-        left: `0px`,
+        left: `+=${menuLength}`,
       });
       currentImg = 1;
     }
@@ -25,7 +22,7 @@ $(document).ready(function () {
   });
 
   $left.on("click", () => {
-    const $picWidth = $(".item").outerWidth(true);
+    const $picWidth = $(".item").width();
     const menuLength = $picWidth * $(".item").length;
     console.log("LEFT CLICK current img", currentImg, "picWidth", $picWidth);
     if (currentImg === 1) {
@@ -41,17 +38,34 @@ $(document).ready(function () {
   });
 
   //turn image to active when mouseenter
-  $(".item").each(function () {
+  $(".img-container").each(function () {
     $(this).on("mouseenter", turnActive)
+    $(this).on("mouseleave", turnInactive)
   });
 });
 
+const turnInactive = function (event) {
+  const el = $(this).find("img");
+  if (el.hasClass("active")) {
 
+    $(".active").removeClass("active");
+    // $("p").removeClass("active");
+    // $(this).parent(".img-container").removeClass("active");
+    el.siblings(".bottom-page").removeClass("active");
+    el.siblings(".bottom-page").find("*").removeClass("active");
+  }
+}
 
-const turnActive = function () {
-
+const turnActive = function (event) {
+  console.log("EVENT", event)
   //TEST
-  const itemId = $(this).attr('id');
+
+  const el = $(this).find("img");
+  if (el.hasClass("active")) {
+    return;
+  }
+
+  const itemId = el.attr('id');
   console.log("MOUSEOVER ITEM", itemId)
 
   $(".bottom-page").html(`
@@ -72,25 +86,10 @@ const turnActive = function () {
     </div>
   </div>`);
 
-
-  //GOOD CODE
-
-  // $(".bottom-page").removeClass("active") //test might need to remove
-  if ($(".active").length > 0) {
-    $(".active").removeClass("active");
-    // $("p").removeClass("active");
-    $(this).parent(".img-container").removeClass("active");
-    $(this).siblings(".bottom-page").removeClass("active");
-    $(this).siblings(".bottom-page").find("*").removeClass("active");
-  }
-
-  $(this).addClass("active");
+  el.addClass("active");
   //display information about the current slide/dish
-  // $("p").addClass("active");
-  $(this).parent(".img-container").addClass("active");
-  $(this).siblings(".bottom-page").addClass("active");
-  $(this).siblings(".bottom-page").find("*").addClass("active");
-  // $(".bottom-page").addClass("active") //test might need to remove
+  el.siblings(".bottom-page").addClass("active");
+  el.siblings(".bottom-page").find("*").addClass("active");
 
   $.ajax({
     url: `/api/product-info/${this.id}`,
@@ -144,4 +143,6 @@ const turnActive = function () {
       quantity = 0;
     }
   });
+
+
 };
