@@ -466,3 +466,16 @@ li {
 .fa-minus-circle {
   font-size: 2em;
 }
+
+#modalStatus .modal-body p {
+  font-weight: 600;
+  visibility: inherit;
+}
+
+#modalStatus .modal-content {
+  margin: 0;
+}
+
+#modalStatus {
+  background-color: transparent;
+}
