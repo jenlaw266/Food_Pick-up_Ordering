@@ -50,7 +50,7 @@ const addLine = function (order) {
 
 const getOrderStatus = function (orderID) {
   return db
-    .query("SELECT id,status,order_datetime FROM orders WHERE id = $1;", [
+    .query("SELECT id,name,status,order_datetime FROM orders WHERE id = $1;", [
       orderID,
     ])
     .then((res) => res.rows[0])

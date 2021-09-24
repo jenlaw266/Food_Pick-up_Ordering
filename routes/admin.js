@@ -18,7 +18,7 @@ const adminRouter = (db) => {
       "select orders.id, orders.name, orders.phone, sum(line_items.subtotal) as subTotal, orders.status, orders.order_datetime from orders join line_items on line_items.order_id = orders.id group by orders.id order by orders.id DESC;"
     )
       .then((response) => {
-        console.log(response.rows);
+        //console.log(response.rows);
         const ordersDb = response.rows;
         const totalTime = req.body.totalTime;
         const templateVars = {
@@ -61,10 +61,7 @@ const adminRouter = (db) => {
   //  POST Edit operation And send SMS
   router.post("/:id", (req, res) => {
     const totalTime = Number(req.body.maxTime) + Number(req.body.addTime);
-    console.log("add time ", Number(req.body.addTime));
-    console.log("EXTRA TIME", totalTime);
     req.session.order_id = req.params.id;
-    console.log("sessionid", req.session.order_id);
     db.query(
       `UPDATE orders SET status = 'PROCESSED', order_datetime = CURRENT_TIMESTAMP +  ($1 * interval '1 minute') WHERE id = $2;`,
       [totalTime, req.params.id]
@@ -77,7 +74,11 @@ const adminRouter = (db) => {
     })
     .then((response) =>{
       const ordersDb = response.rows;
-      //  smsToCustomer(ordersDb[0]["order_datetime"]);
+      console.log(ordersDb[0]["order_datetime"]);
+      const orderTime = ordersDb[0]["order_datetime"].toLocaleTimeString('en-CA', {timeZone: 'America/Edmonton'});
+      const customerName = ordersDb[0]["name"];
+      const orderId = ordersDb[0]['id'];
+      smsToCustomer(orderId, customerName, orderTime);
       })
       .then(() => {
         res.redirect("/admin");
