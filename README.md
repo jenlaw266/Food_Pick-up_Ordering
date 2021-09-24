@@ -4,28 +4,28 @@ A full-stack food-ordering pick-up application with notification features as a f
 
 ## Final Product
 #### Home Page 
-![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app1.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app1.png?raw=true)
 
 #### Shopping Cart
-![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app2.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app2.png?raw=true)
 
 #### Order Submitted by Customer
-![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app3.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app3.png?raw=true)
 
 #### Admin Dashboard
-![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app4.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app4.png?raw=true)
 
 #### Confirmation By Admin
-![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app5.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app5.png?raw=true)
 
 #### Pop-up Display of Pick-up Time to Customer
-![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app6.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/app6.png?raw=true)
 
 #### Twilio Notification to Admin
-![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/twilio1.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/twilio1.png?raw=true)
 
 #### Twilio Notification to Customer
-![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/twilio2.png)
+![Alt text](https://github.com/jenlaw266/Food_Pick-up_Ordering/tree/master/public/images/twilio2.png?raw=true)
 
 #### Customer Order - GIF
 <img src="https://media.giphy.com/media/tfaAALhsMOtVyfvr18/giphy.gif" width="1100">
