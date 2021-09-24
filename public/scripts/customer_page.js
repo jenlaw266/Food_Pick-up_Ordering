@@ -203,12 +203,22 @@ $(document).ready(function () {
     };
     $form.on("submit", (event) => postAndDisplayForm(event));
   });
+
+  $(".order").on('click', function() {
+    $('.modal.customer.is-active').removeClass('is-active');
+  });
+
+  $(".modal-background").on('click', function() {
+    $('.modal.customer').removeClass('is-active');
+  });
+
 });
 
 const showAddItem = (line) => {
   const $order = `<li>${line.item}, quantity: ${line.qty}, amount: $${line.subtotal}<li>`;
   $(".display-item").html($order);
 };
+
 const viewCart = (lines) => {
   $(".item-list").empty();
   $(".total").empty();

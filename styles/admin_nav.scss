@@ -1,30 +1,58 @@
 /* Top navigation formatting */
+// See: https://sass-lang.com/
+$font-reg: "Poppins", sans-serif;
+$font-shadow: "Londrina Shadow", cursive;
+$font-fat: "Londrina Solid", cursive;
+$teal: rgb(48, 217, 200);
+$yellow: #fdf08b;
+$green: rgb(143, 202, 74);
+$white: rgb(255, 255, 255);
+$pink: #e97676;
+$padding1: 1em;
+$padding5: 5em;
+$paddinghalf: 0.5em;
+$margin1: 1em;
+$marginhalf: 0.5em;
+
+* {
+  font-family: $font-reg;
+}
+
 nav {
-  background-color: #ffa69e;
+  background-color: $pink;
   color: black;
   height: 120px;
   width: 100%;
   display: flex;
   position: sticky;
   top: 0;
+  justify-content: space-between;
 }
-nav .logo {
-  font-size: 2.2em;
-  flex-grow: 1;
+
+span .logo {
+  width: 100px;
+}
+
+.logo {
   align-self: center;
-  margin-left: 50px;
+  margin-left: 5px;
+  width: 30%;
+  height: auto;
 }
-.logo{
-  height: 85%;
-  width: 150px;
-}
-nav .nav_welcome {
+
+.nav_welcome {
   align-self: center;
   font-size: 1.1em;
-  margin-right: 50px;
+  margin-right: 1em;
+  font-family: $font-reg;
+  justify-content: center;
 }
+
 .date_time {
   align-self: center;
-  flex-grow: 1;
-  font-size: 1.1em;
+  font-size: 1.25em;
+  font-family: $font-reg;
+  font-weight: 600;
+  color: black;
+  margin-right: 7em;
 }
