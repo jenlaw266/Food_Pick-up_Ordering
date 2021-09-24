@@ -204,10 +204,6 @@ $(document).ready(function () {
     $form.on("submit", (event) => postAndDisplayForm(event));
   });
 
-  $(".order").on('click', function() {
-    $('.modal.customer.is-active').removeClass('is-active');
-  });
-
   $(".modal-background").on('click', function() {
     $('.modal.customer').removeClass('is-active');
   });
